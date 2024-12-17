@@ -1,0 +1,185 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://www.friosur.cl/wp-content/uploads/2023/11/group-4683.png') no-repeat center center fixed;
+  background-size: cover;
+}
+.container {
+  background: #FFFFFF;
+  border: 1px solid #E0E0E0;
+  border-radius: 8px;
+  padding: 1.5em;
+  width: 400px;
+  text-align: center;
+  position: relative;
+  top: 2em;
+  transform: translateY(10%);
+  margin-bottom: 2em;
+}
+.logo {
+  position: absolute;
+  top: -150px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150px;
+}
+h1 {
+  font-size: 1.5em;
+  margin: 1em 0;
+  color: #333333;
+  font-weight: bold;
+  white-space: nowrap;
+  margin-top: 0.5em;
+}
+.option-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+.option {
+  padding: 0.75em 1.5em;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: white;
+  background-color: #0056b3;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.option:hover {
+  background-color: #003974;
+  transform: scale(1.05);
+}
+.tracking-container {
+  background: #c9c9c9;
+  border: 1px solid #c9c9c9;
+  border-radius: 8px;
+  padding: 1em 1.5em;
+  width: 400px;
+  text-align: center;
+  margin-top: 5em;
+}
+.tracking-form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5em;
+}
+.tracking-input {
+  flex: 1;
+  padding: 0.75em;
+  font-size: 1em;
+  border: 1px solid #CCCCCC;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+.tracking-button {
+  padding: 0.5em;
+  font-size: 1em;
+  color: white;
+  background-color: #0056b3;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  transition: background-color 0.3s ease;
+}
+.tracking-button::before {
+  content: '\2192'; /* Unicode arrow */
+  font-size: 1.2em;
+}
+.tracking-button:hover {
+  background-color: #003974;
+}
+.admin-icon {
+  margin-top: 2em;
+  text-align: center;
+}
+.admin-link {
+  color: white;
+  text-decoration: none;
+  font-size: 1.5em;
+}
+.form-container {
+  background: #FFFFFF;
+  border: 1px solid #E0E0E0;
+  border-radius: 8px;
+  padding: 2em 2.5em;
+  width: 400px;
+  margin: 2em auto;
+  text-align: left;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.form-container h1 {
+  font-size: 1.5em;
+  color: #0056b3;
+  margin-bottom: 1em;
+}
+
+form label {
+  display: block;
+  font-size: 1em;
+  margin-bottom: 0.5em;
+  color: #333333;
+}
+
+form input, form select {
+  width: calc(100% - 2em);
+  padding: 0.75em 1em; /* Ajuste de padding uniforme */
+  margin: 0.5em 0;
+  border: 1px solid #CCCCCC;
+  border-radius: 6px;
+  font-size: 1em;
+}
+
+form input:focus, form select:focus {
+  border-color: #0056b3;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 86, 179, 0.5);
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 1em;
+}
+
+form button {
+  padding: 0.75em 1.5em;
+  font-size: 1em;
+  color: white;
+  background-color: #0056b3;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form button:hover {
+  background-color: #003974;
+}
+
+form button[type="button"] {
+  background-color: #ccc; /* Botón Volver en gris */
+  color: #333;
+}
+
+form button[type="button"]:hover {
+  background-color: #bbb;
+}
+
+.required {
+  color: red;
+}

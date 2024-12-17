@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atención Clientes</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <img class="logo" src="https://www.friosur.cl/wp-content/uploads/2023/11/image-6.png" alt="Friosur Logo">
+        <h1>¿En qué podemos ayudarte hoy?</h1>
+        <div class="option-group">
+            <button class="option" onclick="location.href='contacto.html'">Contacto</button>
+            <button class="option" onclick="selectOption('Sugerencia')">Sugerencia</button>
+            <button class="option" onclick="selectOption('Reclamo')">Reclamo</button>
+        </div>
+    </div>
+
+    <div class="tracking-container">
+        <div class="tracking-form">
+            <input type="text" class="tracking-input" placeholder="Ingresa tu código de seguimiento">
+            <button class="tracking-button" onclick="trackAttention()"></button>
+        </div>
+    </div>
+
+    <div class="admin-icon">
+        <a href="/admin-login" class="admin-link">
+            <span>&#128273;</span> <!-- Unicode para icono de llave -->
+        </a>
+    </div>
+
+    <script>
+        function selectOption(option) {
+            alert(`Has seleccionado: ${option}`);
+        }
+
+        function trackAttention() {
+            const input = document.querySelector('.tracking-input').value;
+            if (input.trim()) {
+                alert(`Buscando seguimiento para: ${input}`);
+            } else {
+                alert('Por favor, ingresa un código de atención.');
+            }
+        }
+    </script>
+</body>
+</html>
