@@ -183,3 +183,157 @@ form button[type="button"]:hover {
 .required {
   color: red;
 }
+
+
+form textarea {
+    width: 100%;
+    padding: 0.75em 1em;
+    margin-bottom: 1em;
+    border: 1px solid #CCCCCC;
+    border-radius: 6px;
+    font-size: 1em;
+    resize: vertical; /* Permite redimensionar solo verticalmente */
+}
+
+form select {
+    width: 100%;
+    padding: 0.75em 1em;
+    margin-bottom: 1em;
+    border: 1px solid #CCCCCC;
+    border-radius: 6px;
+    font-size: 1em;
+}
+
+.form-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 1em;
+}
+
+form button {
+    padding: 0.75em 1.5em;
+    font-size: 1em;
+    color: white;
+    background-color: #0056b3;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #003974;
+}
+
+form button[type="button"] {
+    background-color: #ccc;
+    color: #333;
+}
+
+form button[type="button"]:hover {
+    background-color: #bbb;
+}
+
+.required {
+    color: red;
+}
+
+
+form input[type="file"] {
+  border: none;
+  padding: 0.5em 0;
+  margin-bottom: 1em;
+}
+
+form textarea {
+  width: 100%;
+  padding: 0.75em 1em;
+  margin-bottom: 1em;
+  border: 1px solid #CCCCCC;
+  border-radius: 6px;
+  resize: vertical; /* Permite redimensionar solo verticalmente */
+}
+
+form input, form textarea, form select {
+  width: 100%;
+  padding: 0.75em 1em;
+  margin-bottom: 1em;
+  border: 1px solid #CCCCCC;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+/* Contenedor en dos columnas */
+.form-columns {
+  display: flex;
+  gap: 2em;
+}
+
+.form-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Ajustes de inputs y textarea */
+form input, form textarea, form select {
+  width: 100%;
+  padding: 0.75em 1em;
+  margin-bottom: 1em;
+  border: 1px solid #CCCCCC;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+form input[type="file"] {
+  border: none;
+  padding: 0.5em 0;
+}
+
+form textarea {
+  resize: vertical;
+}
+
+/* Contenedor con scroll si el contenido excede */
+.form-container {
+  max-height: 90vh;
+  overflow-y: auto;
+  background: #FFFFFF;
+  border: 1px solid #E0E0E0;
+  border-radius: 8px;
+  padding: 2em;
+  width: 90%;
+  max-width: 800px;
+  margin: 2em auto;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Botones */
+.form-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 1em;
+}
+
+form button {
+  padding: 0.75em 1.5em;
+  font-size: 1em;
+  color: white;
+  background-color: #0056b3;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form button:hover {
+  background-color: #003974;
+}
+
+form button[type="button"] {
+  background-color: #ccc;
+  color: #333;
+}
+
+form button[type="button"]:hover {
+  background-color: #bbb;
+}
