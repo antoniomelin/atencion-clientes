@@ -12,21 +12,21 @@ body {
   background-size: cover;
 }
 
-/* Header fijo con logo */
+/* Header transparente */
 .header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  background: rgba(255, 255, 255, 0.7); 
+  background: transparent; /* Header sin fondo */
   text-align: center;
   padding: 0.5em 0;
   z-index: 1000;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
 }
 
+/* Logo adaptable */
 .logo {
-  max-width: 200px;  
+  width: 200px;  
   height: auto;
   transition: all 0.3s ease;
 }
@@ -141,11 +141,11 @@ h1 {
   bottom: 0;
   width: 100%;
   text-align: center;
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.7); 
   color: #333333;
   font-size: 0.9em;
   padding: 0.5em 1em;
-  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1); 
 }
 
 /* Formulario */
@@ -204,7 +204,7 @@ form button:hover {
 /* Responsivo */
 @media (max-width: 768px) {
   .logo {
-    max-width: 150px; 
+    width: 150px; 
   }
 
   .container, .tracking-container {
@@ -220,7 +220,7 @@ form button:hover {
 
 @media (max-width: 480px) {
   .logo {
-    max-width: 100px;
+    width: 100px;
   }
 
   .container, .tracking-container {
