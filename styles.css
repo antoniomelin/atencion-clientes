@@ -31,6 +31,27 @@ body {
   transition: all 0.3s ease;
   margin-top: 1em;
 }
+/* Ajustar tamaño del logo para alturas menores */
+@media (max-height: 750px) {
+  .logo {
+    width: 130px; /* Reduce el ancho */
+    margin-top: 0.8em; /* Ajusta el margen superior */
+  }
+}
+
+@media (max-height: 600px) {
+  .logo {
+    width: 100px; /* Reduce aún más el ancho */
+    margin-top: 0.5em; /* Menor margen superior */
+  }
+}
+
+@media (max-height: 500px) {
+  .logo {
+    width: 80px; /* Tamaño mínimo del logo */
+    margin-top: 0.3em;
+  }
+}
 
 /* Contenedor principal */
 .container {
