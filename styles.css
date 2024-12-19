@@ -1,3 +1,4 @@
+/* Fondo y cuerpo principal */
 body {
   font-family: 'Poppins', sans-serif;
   display: flex;
@@ -11,6 +12,26 @@ body {
   background-size: cover;
 }
 
+/* Header fijo con logo */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.7); 
+  text-align: center;
+  padding: 0.5em 0;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+}
+
+.logo {
+  max-width: 200px;  
+  height: auto;
+  transition: all 0.3s ease;
+}
+
+/* Contenedor principal */
 .container {
   background: #FFFFFF;
   border: 1px solid #E0E0E0;
@@ -18,18 +39,8 @@ body {
   padding: 1.5em;
   width: 400px;
   text-align: center;
-  position: relative;
-  top: 2em;
-  transform: translateY(10%);
+  margin-top: 8em; 
   margin-bottom: 2em;
-}
-
-.logo {
-  position: absolute;
-  top: -180px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 150px;
 }
 
 h1 {
@@ -37,10 +48,9 @@ h1 {
   margin: 1em 0;
   color: #333333;
   font-weight: bold;
-  white-space: nowrap;
-  margin-top: 0.5em;
 }
 
+/* Botones de opciones */
 .option-group {
   display: flex;
   flex-direction: column;
@@ -56,7 +66,6 @@ h1 {
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  text-align: center;
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
@@ -65,6 +74,7 @@ h1 {
   transform: scale(1.05);
 }
 
+/* Contenedor de seguimiento */
 .tracking-container {
   background: #c9c9c9;
   border: 1px solid #c9c9c9;
@@ -72,9 +82,9 @@ h1 {
   padding: 1em 1.5em;
   width: 400px;
   text-align: center;
-  margin-top: 3em; /* Mayor margen superior */
-  margin-bottom: 2em; /* Agregar margen inferior */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+  margin-top: 3em;
+  margin-bottom: 2em;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .tracking-form {
@@ -90,7 +100,6 @@ h1 {
   font-size: 1em;
   border: 1px solid #CCCCCC;
   border-radius: 6px;
-  box-sizing: border-box;
 }
 
 .tracking-button {
@@ -100,17 +109,13 @@ h1 {
   background-color: #0056b3;
   border: none;
   border-radius: 6px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   width: 40px;
   height: 40px;
   transition: background-color 0.3s ease;
 }
 
 .tracking-button::before {
-  content: '\2192'; /* Unicode arrow */
+  content: '\2192'; 
   font-size: 1.2em;
 }
 
@@ -118,6 +123,7 @@ h1 {
   background-color: #003974;
 }
 
+/* Icono de administración */
 .admin-icon {
   margin-top: 2em;
   text-align: center;
@@ -129,6 +135,20 @@ h1 {
   font-size: 1.5em;
 }
 
+/* Footer */
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.7);
+  color: #333333;
+  font-size: 0.9em;
+  padding: 0.5em 1em;
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Formulario */
 .form-container {
   background: #FFFFFF;
   border: 1px solid #E0E0E0;
@@ -154,7 +174,6 @@ form input, form select, form textarea {
   border: 1px solid #CCCCCC;
   border-radius: 6px;
   font-size: 1em;
-  box-sizing: border-box;
 }
 
 form textarea {
@@ -182,79 +201,35 @@ form button:hover {
   background-color: #003974;
 }
 
-form button[type="button"] {
-  background-color: #ccc;
-  color: #333;
-}
-
-form button[type="button"]:hover {
-  background-color: #bbb;
-}
-
-.required {
-  color: red;
-}
-
-/* Ajustes para el contenedor de seguimiento en pantallas pequeñas */
+/* Responsivo */
 @media (max-width: 768px) {
-  .tracking-container {
-    margin-top: 3em; /* Mayor separación */
-    margin-bottom: 3em; /* Espaciado adicional */
-    padding: 0.75em 1em; /* Menor padding */
-    width: 80%; /* Menor ancho */
+  .logo {
+    max-width: 150px; 
   }
 
-  .container {
-    margin-top: 2em; /* Separación del contenedor principal */
-    margin-bottom: 2em; /* Espaciado adicional */
-    width: 80%; /* Menor ancho */
-    padding: 1em; /* Reducir padding */
+  .container, .tracking-container {
+    width: 90%;
+    padding: 1.5em;
+    margin-top: 2em;
   }
 
   h1 {
-    font-size: 1.2em; /* Reduce el tamaño del título */
-  }
-
-  .logo {
-    top: -180px; /* Ajusta la posición del logo */
-    width: 120px;
+    font-size: 1.2em;
   }
 }
 
 @media (max-width: 480px) {
-  .tracking-container {
-    margin-top: 2em; /* Ajuste para pantallas muy pequeñas */
-    margin-bottom: 2em;
-    padding: 0.5em; /* Reducir aún más el padding */
-    width: 75%; /* Contenedor más angosto */
+  .logo {
+    max-width: 100px;
   }
 
-  .container {
-    width: 75%; /* Más pequeño aún */
+  .container, .tracking-container {
+    width: 95%;
+    padding: 1em;
     margin-top: 2em;
-    margin-bottom: 2em;
-    padding: 0.5em; /* Menor padding */
   }
 
   h1 {
-    font-size: 1em; /* Reduce aún más el tamaño del título */
+    font-size: 1em;
   }
-
-  .logo {
-    top: -180px; /* Ajusta la posición del logo */
-    width: 120px;
-  }
-}
-
-.footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  text-align: center;
-  background: rgba(255, 255, 255, 0.7); /* Fondo blanco semi-transparente */
-  color: #333333; /* Texto gris oscuro */
-  font-size: 0.9em; /* Tamaño de fuente más pequeño */
-  padding: 0.5em 1em;
-  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil */
-  z-index: 1000; /* Siempre visible sobre otros elementos */
 }
