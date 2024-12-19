@@ -34,8 +34,8 @@ body {
 
 /* Contenedor principal */
 .container {
-  background: rgba(201, 201, 201, 0.9); /* Transparencia agregada */
-  border: 1px solid rgba(201, 201, 201, 0.9);
+  background: rgba(201, 201, 201, 0.8); /* Mayor transparencia */
+  border: 1px solid rgba(201, 201, 201, 0.8);
   border-radius: 8px;
   padding: 1.5em;
   width: 350px; 
@@ -63,7 +63,7 @@ h1 {
   font-size: 1.1em;
   font-weight: bold;
   color: white;
-  background-color: #0c3273; /* Color actualizado */
+  background-color: #0c3273;
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -71,14 +71,14 @@ h1 {
 }
 
 .option:hover {
-  background-color: #0a285a; /* Tonalidad más oscura para hover */
+  background-color: #0a285a;
   transform: scale(1.05);
 }
 
 /* Contenedor de seguimiento */
 .tracking-container {
-  background: rgba(201, 201, 201, 0.9); /* Transparencia agregada */
-  border: 1px solid rgba(201, 201, 201, 0.9);
+  background: rgba(201, 201, 201, 0.8); /* Mayor transparencia */
+  border: 1px solid rgba(201, 201, 201, 0.8);
   border-radius: 8px;
   padding: 1em 1.5em;
   width: 350px; 
@@ -107,7 +107,7 @@ h1 {
   padding: 0.5em;
   font-size: 1em;
   color: white;
-  background-color: #0c3273; /* Color actualizado */
+  background-color: #0c3273;
   border: none;
   border-radius: 6px;
   width: 40px;
@@ -121,7 +121,7 @@ h1 {
 }
 
 .tracking-button:hover {
-  background-color: #0a285a; /* Tonalidad más oscura para hover */
+  background-color: #0a285a;
 }
 
 /* Icono de administración */
@@ -142,17 +142,17 @@ h1 {
   bottom: 0;
   width: 100%;
   text-align: center;
-  background: rgba(255, 255, 255, 0.7); 
+  background: rgba(255, 255, 255, 0.6); /* Más transparente */
   color: #333333;
   font-size: 0.7em;
   padding: 0.5em 1em;
-  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1); 
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* Formulario */
 .form-container {
-  background: rgba(255, 255, 255, 0.9); /* Transparencia agregada */
-  border: 1px solid #E0E0E0;
+  background: rgba(255, 255, 255, 0.85); /* Mayor transparencia */
+  border: 1px solid rgba(224, 224, 224, 0.85);
   border-radius: 8px;
   padding: 2em 2.5em;
   width: 350px; 
@@ -191,7 +191,7 @@ form button {
   padding: 0.75em 1.5em;
   font-size: 1em;
   color: white;
-  background-color: #0c3273; /* Color actualizado */
+  background-color: #0c3273;
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -199,7 +199,7 @@ form button {
 }
 
 form button:hover {
-  background-color: #0a285a; /* Tonalidad más oscura para hover */
+  background-color: #0a285a;
 }
 
 /* Responsivo */
