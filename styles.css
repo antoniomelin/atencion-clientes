@@ -18,7 +18,7 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  background: transparent; /* Header sin fondo */
+  background: transparent;
   text-align: center;
   padding: 0.5em 0;
   z-index: 1000;
@@ -26,7 +26,7 @@ body {
 
 /* Logo adaptable */
 .logo {
-  width: 200px;  
+  width: 150px;  
   height: auto;
   transition: all 0.3s ease;
 }
@@ -37,14 +37,14 @@ body {
   border: 1px solid #E0E0E0;
   border-radius: 8px;
   padding: 1.5em;
-  width: 400px;
+  width: 350px; 
   text-align: center;
   margin-top: 8em; 
   margin-bottom: 2em;
 }
 
 h1 {
-  font-size: 1.5em;
+  font-size: 1.4em;
   margin: 1em 0;
   color: #333333;
   font-weight: bold;
@@ -59,7 +59,7 @@ h1 {
 
 .option {
   padding: 0.75em 1.5em;
-  font-size: 1.2em;
+  font-size: 1.1em;
   font-weight: bold;
   color: white;
   background-color: #0056b3;
@@ -80,7 +80,7 @@ h1 {
   border: 1px solid #c9c9c9;
   border-radius: 8px;
   padding: 1em 1.5em;
-  width: 400px;
+  width: 350px; 
   text-align: center;
   margin-top: 3em;
   margin-bottom: 2em;
@@ -154,7 +154,7 @@ h1 {
   border: 1px solid #E0E0E0;
   border-radius: 8px;
   padding: 2em 2.5em;
-  width: 400px;
+  width: 350px; 
   margin: 2em auto;
   text-align: left;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
@@ -204,12 +204,12 @@ form button:hover {
 /* Responsivo */
 @media (max-width: 768px) {
   .logo {
-    width: 150px; 
+    width: 120px; 
   }
 
-  .container, .tracking-container {
-    width: 90%;
-    padding: 1.5em;
+  .container, .tracking-container, .form-container {
+    width: 85%; 
+    padding: 1.2em;
     margin-top: 2em;
   }
 
@@ -223,8 +223,8 @@ form button:hover {
     width: 100px;
   }
 
-  .container, .tracking-container {
-    width: 95%;
+  .container, .tracking-container, .form-container {
+    width: 90%;
     padding: 1em;
     margin-top: 2em;
   }
