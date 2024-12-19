@@ -20,7 +20,7 @@ body {
   width: 100%;
   background: transparent;
   text-align: center;
-  padding: 1.5em 0;
+  padding: 0.5em 0;
   z-index: 1000;
 }
 
@@ -29,6 +29,7 @@ body {
   width: 150px;  
   height: auto;
   transition: all 0.3s ease;
+  margin-top: 1em;
 }
 
 /* Contenedor principal */
