@@ -52,7 +52,7 @@ body {
     margin-top: 0.2em;
   }
 }
-@media (max-height: 500px) {
+@media (max-height: 550px) {
   .logo {
     width: 0px; /* Tamaño mínimo del logo */
     margin-top: 0.3em;
