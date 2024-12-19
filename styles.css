@@ -7,7 +7,7 @@ body {
   height: 100vh;
   margin: 0;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
-              url('https://github.com/antoniomelin/atencion-clientes/blob/ab03b94258bc690d0fe3426129e18876943c5e77/fondo_frio.png') no-repeat center center fixed;
+              url('https://github.com/antoniomelin/atencion-clientes/blob/main/fondo_frio.png?raw=true') no-repeat center center fixed;
   background-size: cover;
 }
 
