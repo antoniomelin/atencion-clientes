@@ -48,7 +48,7 @@ body {
 
 @media (max-height: 650px) {
   .logo {
-    width: 20px; /* Tamaño mínimo del logo */
+    width: 50px; /* Tamaño mínimo del logo */
     margin-top: 0.2em;
   }
 }
