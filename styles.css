@@ -32,27 +32,27 @@ body {
   margin-top: 1em;
 }
 /* Ajustar tamaño del logo para alturas menores */
-@media (max-height: 750px) {
+@media (max-height: 740px) {
   .logo {
     width: 140px; /* Reduce el ancho */
     margin-top: 0.5em; /* Ajusta el margen superior */
   }
 }
 
-@media (max-height: 600px) {
+@media (max-height: 700px) {
   .logo {
     width: 80px; /* Reduce aún más el ancho */
     margin-top: 0.2em; /* Menor margen superior */
   }
 }
 
-@media (max-height: 500px) {
+@media (max-height: 650px) {
   .logo {
     width: 20px; /* Tamaño mínimo del logo */
     margin-top: 0.2em;
   }
 }
-@media (max-height: 400px) {
+@media (max-height: 600px) {
   .logo {
     width: 0px; /* Tamaño mínimo del logo */
     margin-top: 0.3em;
