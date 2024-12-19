@@ -34,8 +34,8 @@ body {
 
 /* Contenedor principal */
 .container {
-  background: #c9c9c9;
-  border: 1px solid #c9c9c9;
+  background: rgba(201, 201, 201, 0.9); /* Transparencia agregada */
+  border: 1px solid rgba(201, 201, 201, 0.9);
   border-radius: 8px;
   padding: 1.5em;
   width: 350px; 
@@ -63,7 +63,7 @@ h1 {
   font-size: 1.1em;
   font-weight: bold;
   color: white;
-  background-color: #0056b3;
+  background-color: #0c3273; /* Color actualizado */
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -71,14 +71,14 @@ h1 {
 }
 
 .option:hover {
-  background-color: #003974;
+  background-color: #0a285a; /* Tonalidad más oscura para hover */
   transform: scale(1.05);
 }
 
 /* Contenedor de seguimiento */
 .tracking-container {
-  background: #c9c9c9;
-  border: 1px solid #c9c9c9;
+  background: rgba(201, 201, 201, 0.9); /* Transparencia agregada */
+  border: 1px solid rgba(201, 201, 201, 0.9);
   border-radius: 8px;
   padding: 1em 1.5em;
   width: 350px; 
@@ -107,7 +107,7 @@ h1 {
   padding: 0.5em;
   font-size: 1em;
   color: white;
-  background-color: #0056b3;
+  background-color: #0c3273; /* Color actualizado */
   border: none;
   border-radius: 6px;
   width: 40px;
@@ -121,7 +121,7 @@ h1 {
 }
 
 .tracking-button:hover {
-  background-color: #003974;
+  background-color: #0a285a; /* Tonalidad más oscura para hover */
 }
 
 /* Icono de administración */
@@ -151,7 +151,7 @@ h1 {
 
 /* Formulario */
 .form-container {
-  background: #FFFFFF;
+  background: rgba(255, 255, 255, 0.9); /* Transparencia agregada */
   border: 1px solid #E0E0E0;
   border-radius: 8px;
   padding: 2em 2.5em;
@@ -191,7 +191,7 @@ form button {
   padding: 0.75em 1.5em;
   font-size: 1em;
   color: white;
-  background-color: #0056b3;
+  background-color: #0c3273; /* Color actualizado */
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -199,7 +199,7 @@ form button {
 }
 
 form button:hover {
-  background-color: #003974;
+  background-color: #0a285a; /* Tonalidad más oscura para hover */
 }
 
 /* Responsivo */
