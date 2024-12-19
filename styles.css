@@ -46,13 +46,13 @@ body {
   }
 }
 
-@media (max-height: 650px) {
+@media (max-height: 600px) {
   .logo {
-    width: 50px; /* Tamaño mínimo del logo */
+    width: 60px; /* Tamaño mínimo del logo */
     margin-top: 0.2em;
   }
 }
-@media (max-height: 600px) {
+@media (max-height: 500px) {
   .logo {
     width: 0px; /* Tamaño mínimo del logo */
     margin-top: 0.3em;
