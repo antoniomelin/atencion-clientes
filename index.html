@@ -7,48 +7,59 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <a href="https://www.friosur.cl" target="_blank">
-            <img class="logo" src="https://www.friosur.cl/wp-content/uploads/2023/11/image-6.png" alt="Friosur Logo">
-        </a>
-        <h1>¿En qué podemos ayudarte hoy?</h1>
-        <div class="option-group">
-            <button class="option" onclick="location.href='contacto.html'">Contacto</button>
-            <button class="option" onclick="location.href='sugerencia.html'">Sugerencia</button>
-            <button class="option" onclick="location.href='reclamo.html'">Reclamo</button>
-        </div>
+
+<!-- Header Transparente con Logo -->
+<header class="header">
+    <a href="https://www.friosur.cl" target="_blank">
+        <img class="logo" src="https://www.friosur.cl/wp-content/uploads/2023/11/image-6.png" alt="Friosur Logo">
+    </a>
+</header>
+
+<!-- Contenedor Principal -->
+<main class="container">
+    <h1>¿En qué podemos ayudarte hoy?</h1>
+    <div class="option-group">
+        <button class="option" onclick="location.href='contacto.html'">Contacto</button>
+        <button class="option" onclick="location.href='sugerencia.html'">Sugerencia</button>
+        <button class="option" onclick="location.href='reclamo.html'">Reclamo</button>
     </div>
+</main>
 
-    <div class="tracking-container">
-        <div class="tracking-form">
-            <input type="text" class="tracking-input" placeholder="Ingresa tu código de seguimiento">
-            <button class="tracking-button" onclick="trackAttention()"></button>
-        </div>
+<!-- Contenedor de Seguimiento -->
+<div class="tracking-container">
+    <div class="tracking-form">
+        <input type="text" class="tracking-input" placeholder="Ingresa tu código de seguimiento">
+        <button class="tracking-button" onclick="trackAttention()"></button>
     </div>
+</div>
 
-    <div class="admin-icon">
-        <a href="/admin-login" class="admin-link">
-            <span>&#128273;</span> <!-- Unicode para icono de llave -->
-        </a>
-    </div>
+<!-- Icono de Administración -->
+<div class="admin-icon">
+    <a href="/admin-login" class="admin-link">
+        <span>&#128273;</span> <!-- Unicode para icono de llave -->
+    </a>
+</div>
 
-    <footer class="footer">
-        José María Caro Nº 300, Puerto Chacabuco. Región de Aysén
-    </footer>
+<!-- Footer con Dirección -->
+<footer class="footer">
+    José María Caro Nº 300, Puerto Chacabuco. Región de Aysén
+</footer>
 
-    <script>
-        function selectOption(option) {
-            alert(`Has seleccionado: ${option}`);
+<!-- Scripts -->
+<script>
+    function selectOption(option) {
+        alert(`Has seleccionado: ${option}`);
+    }
+
+    function trackAttention() {
+        const input = document.querySelector('.tracking-input').value;
+        if (input.trim()) {
+            alert(`Buscando seguimiento para: ${input}`);
+        } else {
+            alert('Por favor, ingresa un código de atención.');
         }
+    }
+</script>
 
-        function trackAttention() {
-            const input = document.querySelector('.tracking-input').value;
-            if (input.trim()) {
-                alert(`Buscando seguimiento para: ${input}`);
-            } else {
-                alert('Por favor, ingresa un código de atención.');
-            }
-        }
-    </script>
 </body>
 </html>
