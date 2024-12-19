@@ -29,20 +29,20 @@ body {
   width: 150px;  
   height: auto;
   transition: all 0.3s ease;
-  margin-top: 1em;
+  margin-top: 2em;
 }
 /* Ajustar tamaño del logo para alturas menores */
 @media (max-height: 740px) {
   .logo {
     width: 140px; /* Reduce el ancho */
-    margin-top: 0.5em; /* Ajusta el margen superior */
+    margin-top: 0.8em; /* Ajusta el margen superior */
   }
 }
 
 @media (max-height: 700px) {
   .logo {
     width: 80px; /* Reduce aún más el ancho */
-    margin-top: 0.2em; /* Menor margen superior */
+    margin-top: 0.4em; /* Menor margen superior */
   }
 }
 
