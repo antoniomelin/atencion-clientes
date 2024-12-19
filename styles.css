@@ -3,7 +3,7 @@ body {
   font-family: 'Poppins', sans-serif;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; /* Cambiado para alinear el contenido desde arriba */
+  justify-content: center;
   align-items: center;
   height: 100vh;
   margin: 0;
@@ -22,7 +22,6 @@ body {
   text-align: center;
   padding: 0.5em 0;
   z-index: 1000;
-  height: auto;
 }
 
 /* Logo adaptable */
@@ -35,13 +34,13 @@ body {
 
 /* Contenedor principal */
 .container {
-  background: rgba(201, 201, 201, 0.6);
+  background: rgba(201, 201, 201, 0.6); /* Mayor transparencia */
   border: 1px solid rgba(201, 201, 201, 0.7);
   border-radius: 8px;
   padding: 1.5em;
   width: 350px; 
   text-align: center;
-  margin-top: 10em; /* Suficiente margen para evitar que el logo se superponga */
+  margin-top: 8em; 
   margin-bottom: 2em;
 }
 
@@ -78,15 +77,51 @@ h1 {
 
 /* Contenedor de seguimiento */
 .tracking-container {
-  background: rgba(201, 201, 201, 0.6);
+  background: rgba(201, 201, 201, 0.6); /* Mayor transparencia */
   border: 1px solid rgba(201, 201, 201, 0.7);
   border-radius: 8px;
   padding: 1em 1.5em;
   width: 350px; 
   text-align: center;
-  margin-top: 2em;
+  margin-top: 3em;
   margin-bottom: 2em;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.tracking-form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.tracking-input {
+  flex: 1;
+  padding: 0.75em;
+  font-size: 1em;
+  border: 1px solid #CCCCCC;
+  border-radius: 6px;
+}
+
+.tracking-button {
+  padding: 0.5em;
+  font-size: 1em;
+  color: white;
+  background-color: #0c3273;
+  border: none;
+  border-radius: 6px;
+  width: 40px;
+  height: 40px;
+  transition: background-color 0.3s ease;
+}
+
+.tracking-button::before {
+  content: '\2192'; 
+  font-size: 1.2em;
+}
+
+.tracking-button:hover {
+  background-color: #0a285a;
 }
 
 /* Icono de administración */
@@ -95,17 +130,76 @@ h1 {
   text-align: center;
 }
 
+.admin-link {
+  color: white;
+  text-decoration: none;
+  font-size: 1.5em;
+}
+
 /* Footer */
 .footer {
   position: fixed;
   bottom: 0;
   width: 100%;
   text-align: center;
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.6); /* Más transparente */
   color: #333333;
   font-size: 0.7em;
   padding: 0.5em 1em;
   box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Formulario */
+.form-container {
+  background: rgba(255, 255, 255, 0.85); /* Mayor transparencia */
+  border: 1px solid rgba(224, 224, 224, 0.85);
+  border-radius: 8px;
+  padding: 2em 2.5em;
+  width: 350px; 
+  margin: 2em auto;
+  text-align: left;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+  display: block;
+  font-size: 1em;
+  margin-bottom: 0.5em;
+  color: #333333;
+}
+
+form input, form select, form textarea {
+  width: 100%;
+  padding: 0.75em 1em;
+  margin-bottom: 1em;
+  border: 1px solid #CCCCCC;
+  border-radius: 6px;
+  font-size: 1em;
+}
+
+form textarea {
+  resize: vertical;
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 1em;
+}
+
+form button {
+  padding: 0.75em 1.5em;
+  font-size: 1em;
+  color: white;
+  background-color: #0c3273;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form button:hover {
+  background-color: #0a285a;
 }
 
 /* Responsivo */
@@ -114,10 +208,10 @@ h1 {
     width: 120px; 
   }
 
-  .container, .tracking-container {
+  .container, .tracking-container, .form-container {
     width: 85%; 
     padding: 1.2em;
-    margin-top: 12em; /* Mayor margen para evitar colisión con el logo */
+    margin-top: 2em;
   }
 
   h1 {
@@ -125,16 +219,15 @@ h1 {
   }
 }
 
-@media (max-width: 480px), (max-height: 500px) {
+@media (max-width: 480px) {
   .logo {
-    width: 90px;
-    margin-top: 0.5em;
+    width: 100px;
   }
 
-  .container, .tracking-container {
+  .container, .tracking-container, .form-container {
     width: 90%;
     padding: 1em;
-    margin-top: 14em; /* Ajustar margen para evitar solapamientos */
+    margin-top: 2em;
   }
 
   h1 {
