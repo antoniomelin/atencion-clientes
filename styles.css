@@ -34,8 +34,8 @@ body {
 
 /* Contenedor principal */
 .container {
-  background: #FFFFFF;
-  border: 1px solid #E0E0E0;
+  background: #c9c9c9;
+  border: 1px solid #c9c9c9;
   border-radius: 8px;
   padding: 1.5em;
   width: 350px; 
