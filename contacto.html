@@ -4,54 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario de Contacto</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="contacto.css">
 </head>
 <body>
     <div class="form-container">
-        <h1>Formulario de Contacto</h1>
+        <div class="contact-header">
+            <a href="https://www.friosur.cl" target="_blank">
+                <img src="https://www.friosur.cl/wp-content/uploads/2023/11/image-6.png" alt="Friosur Logo" class="contact-logo">
+            </a>
+            <h1 class="contact-title">Formulario de Contacto</h1>
+        </div>
         <form id="contact-form">
-          <label for="nombre">Nombre <span class="required">*</span></label>
-          <input type="text" id="nombre" name="nombre" required>
-      
-          <label for="apellido1">Apellido 1 <span class="required">*</span></label>
-          <input type="text" id="apellido1" name="apellido1" required>
-      
-          <label for="apellido2">Apellido 2 <span class="required">*</span></label>
-          <input type="text" id="apellido2" name="apellido2" required>
-      
-          <label for="rut">RUT <span class="required">*</span></label>
-          <input type="text" id="rut" name="rut" required>
-      
-          <label for="empresa">Empresa</label>
-          <input type="text" id="empresa" name="empresa">
-      
-          <label for="email">Email <span class="required">*</span></label>
-          <input type="email" id="email" name="email" required>
-      
-          <label for="telefono">Teléfono <span class="required">*</span></label>
-          <input type="tel" id="telefono" name="telefono" required>
-      
-          <label for="canal">Canal</label>
-          <select id="canal" name="canal">
-              <option value="">Selecciona una opción</option>
-              <option value="tienda">Tienda</option>
-              <option value="supermercado">Supermercado</option>
-              <option value="otro">Otro</option>
-          </select>
-      
-          <div class="form-buttons">
-              <button type="submit">Enviar</button>
-              <button type="button" onclick="location.href='index.html'">Volver</button>
-          </div>
-      </form>
-      
+            <label for="nombre">Nombre <span class="required">*</span></label>
+            <input type="text" id="nombre" name="nombre" required>
+        
+            <label for="apellido1">Apellido 1 <span class="required">*</span></label>
+            <input type="text" id="apellido1" name="apellido1" required>
+        
+            <label for="apellido2">Apellido 2 <span class="required">*</span></label>
+            <input type="text" id="apellido2" name="apellido2" required>
+        
+            <label for="rut">RUT <span class="required">*</span></label>
+            <input type="text" id="rut" name="rut" required>
+        
+            <label for="empresa">Empresa</label>
+            <input type="text" id="empresa" name="empresa">
+        
+            <label for="email">Email <span class="required">*</span></label>
+            <input type="email" id="email" name="email" required>
+        
+            <label for="telefono">Teléfono <span class="required">*</span></label>
+            <input type="tel" id="telefono" name="telefono" required>
+        
+            <label for="canal">Canal</label>
+            <select id="canal" name="canal">
+                <option value="">Selecciona una opción</option>
+                <option value="tienda">Tienda</option>
+                <option value="supermercado">Supermercado</option>
+                <option value="otro">Otro</option>
+            </select>
+        
+            <div class="form-buttons">
+                <button type="submit">Enviar</button>
+                <button type="button" onclick="location.href='index.html'">Volver</button>
+            </div>
+        </form>
     </div>
 
-    <script>
-        document.getElementById('contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Formulario enviado correctamente');
-        });
-    </script>
+    <!-- Footer -->
+    <footer class="footer">
+        José María Caro Nº 300, Puerto Chacabuco. Región de Aysén
+    </footer>
 </body>
 </html>

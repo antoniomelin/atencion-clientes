@@ -1,0 +1,169 @@
+/* Fondo y cuerpo principal */
+body {
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  min-height: 100vh; /* Cambiado de height: 100vh a min-height */
+  margin: 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+              url('https://github.com/antoniomelin/atencion-clientes/blob/main/fondo_frio.png?raw=true') no-repeat center center fixed;
+  background-size: cover;
+  padding-bottom: 3em; /* Espacio reservado adicional para el footer */
+}
+
+/* Contenedor del formulario */
+.form-container {
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(224, 224, 224, 0.85);
+  border-radius: 8px;
+  padding: 2em 1.5em;
+  width: 350px;
+  max-width: 90%;
+  margin: 2em auto; /* Asegura margen superior y centralizado */
+  text-align: left;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Contenedor del logo y título dentro del formulario */
+.suggestion-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 1.5em;
+}
+
+.suggestion-logo {
+  width: 50px;
+  height: auto;
+}
+
+.suggestion-title {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #555555;
+  margin: 0;
+}
+
+/* Estilo de etiquetas e inputs */
+form {
+  width: 100%;
+}
+
+form label {
+  display: block;
+  font-size: 0.9em;
+  margin-bottom: 0.5em;
+  color: #666666;
+}
+
+form input, form select, form textarea {
+  width: 100%;
+  padding: 0.7em;
+  margin-bottom: 1em;
+  border: 1px solid #CCCCCC;
+  border-radius: 6px;
+  font-size: 0.9em;
+  box-sizing: border-box;
+}
+
+form textarea {
+  resize: vertical;
+}
+
+/* Botones del formulario */
+.form-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 1em;
+  width: 100%;
+}
+
+form button {
+  padding: 0.6em 1em;
+  font-size: 0.9em;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Botón Enviar */
+form button[type="submit"] {
+  color: white;
+  background-color: #0c3273;
+}
+
+form button[type="submit"]:hover {
+  background-color: #0a285a;
+}
+
+/* Botón Volver */
+form button[type="button"] {
+  color: white;
+  background-color: #888888;
+}
+
+form button[type="button"]:hover {
+  background-color: #666666;
+}
+
+/* Footer */
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.6);
+  color: #333333;
+  font-size: 0.7em;
+  padding: 0.5em 1em;
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .suggestion-header {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .suggestion-title {
+    text-align: center;
+    margin-top: 1em;
+  }
+}
+
+@media (max-width: 480px) {
+  .suggestion-logo {
+    width: 40px;
+  }
+
+  .form-container {
+    padding: 1.5em 1em;
+  }
+
+  .suggestion-title {
+    font-size: 1em;
+  }
+
+  form label {
+    font-size: 0.8em;
+  }
+
+  form input, form select, form textarea {
+    padding: 0.6em;
+    font-size: 0.8em;
+  }
+
+  form button {
+    font-size: 0.8em;
+    padding: 0.5em 0.8em;
+  }
+}
