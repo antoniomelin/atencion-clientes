@@ -3,9 +3,9 @@ body {
   font-family: 'Poppins', sans-serif;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; /* Permite que el contenido comience desde el inicio */
+  justify-content: flex-start;
   align-items: center;
-  min-height: 100vh; /* Cambiado de height: 100vh a min-height */
+  min-height: 100vh;
   margin: 0;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
               url('https://github.com/antoniomelin/atencion-clientes/blob/main/fondo_frio.png?raw=true') no-repeat center center fixed;
@@ -19,9 +19,9 @@ body {
   border: 1px solid rgba(224, 224, 224, 0.85);
   border-radius: 8px;
   padding: 2em 2.5em;
-  width: 350px; 
+  width: 600px; /* Más ancho en pantallas grandes */
   max-width: 90%; /* Limita el ancho máximo en pantallas pequeñas */
-  margin: 2em auto; /* Asegura un margen superior */
+  margin: 2em auto;
   text-align: left;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
   display: flex;
@@ -30,8 +30,8 @@ body {
   margin-bottom: 3em; /* Espacio reservado para el footer */
 }
 
-/* Contenedor del logo y título dentro del formulario */
-.contact-header {
+/* Contenedor del logo y título */
+.claim-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -39,7 +39,7 @@ body {
   margin-bottom: 1.5em;
 }
 
-.contact-logo {
+.claim-logo {
   width: 60px;
   height: auto;
   background-color: #0c3273; /* Azul intenso */
@@ -47,10 +47,10 @@ body {
   border-radius: 10%; /* Opcional: hace que el fondo sea redondo */
 }
 
-.contact-title {
+.claim-title {
   font-size: 1.3em;
   font-weight: bold;
-  color: #555555; /* Gris medio para buen contraste */
+  color: #555555;
   margin: 0;
 }
 
@@ -63,7 +63,7 @@ form label {
   display: block;
   font-size: 1em;
   margin-bottom: 0.5em;
-  color: #666666; /* Gris claro para etiquetas */
+  color: #666666;
 }
 
 form input, form select, form textarea {
@@ -100,21 +100,21 @@ form button {
 /* Botón Enviar */
 form button[type="submit"] {
   color: white;
-  background-color: #0c3273; /* Azul intenso */
+  background-color: #0c3273;
 }
 
 form button[type="submit"]:hover {
-  background-color: #0a285a; /* Azul más oscuro en hover */
+  background-color: #0a285a;
 }
 
 /* Botón Volver */
 form button[type="button"] {
   color: white;
-  background-color: #888888; /* Gris medio */
+  background-color: #888888;
 }
 
 form button[type="button"]:hover {
-  background-color: #666666; /* Gris más oscuro en hover */
+  background-color: #666666;
 }
 
 /* Footer */
@@ -128,46 +128,51 @@ form button[type="button"]:hover {
   font-size: 0.7em;
   padding: 0.5em 1em;
   box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
-  z-index: 10; /* Asegura que el footer siempre esté encima */
+  z-index: 10;
 }
 
 /* Responsivo */
 @media (max-width: 768px) {
-  .contact-header {
+  .form-container {
+    width: 400px; /* Más estrecho para tablets */
+  }
+
+  .claim-header {
     flex-direction: column;
     align-items: center;
   }
 
-  .contact-title {
+  .claim-title {
     text-align: center;
     margin-top: 1em;
   }
 }
 
 @media (max-width: 480px) {
-  .contact-logo {
+  .claim-logo {
     width: 50px;
   }
 
   .form-container {
-    padding: 1.5em 1em; /* Reduce los márgenes internos */
+    padding: 1.5em 1em;
+    width: 90%; /* Se adapta completamente a pantallas pequeñas */
   }
 
-  .contact-title {
-    font-size: 1em; /* Texto más pequeño para pantallas muy pequeñas */
+  .claim-title {
+    font-size: 1em;
   }
 
   form label {
-    font-size: 0.9em; /* Ajuste de tamaño para etiquetas */
+    font-size: 0.9em;
   }
 
   form input, form select, form textarea {
-    padding: 0.6em; /* Inputs más compactos */
+    padding: 0.6em;
     font-size: 0.9em;
   }
 
   form button {
-    font-size: 0.9em; /* Botones más pequeños */
+    font-size: 0.9em;
     padding: 0.5em 1em;
   }
 }
