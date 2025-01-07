@@ -62,8 +62,15 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function isValidRUT(rut) {
-        // Elimina puntos y convierte todo a mayúsculas
-        const cleanRUT = rut.replace(/\./g, "").toUpperCase();
+        // Elimina puntos y espacios, y convierte todo a mayúsculas
+        let cleanRUT = rut.replace(/\./g, "").replace(/\s+/g, "").toUpperCase();
+    
+        // Si no contiene guion, lo agrega
+        if (!cleanRUT.includes("-")) {
+            const cuerpo = cleanRUT.slice(0, -1); // Todo excepto el último carácter
+            const dv = cleanRUT.slice(-1); // Último carácter como dígito verificador
+            cleanRUT = `${cuerpo}-${dv}`; // Formatea el RUT con guion
+        }
     
         // Divide el RUT en número y dígito verificador
         const match = cleanRUT.match(/^(\d+)-([\dkK])$/);
@@ -93,7 +100,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
         // Verifica si el dígito verificador es correcto
         return dv === dvEsperado;
-    }
+    }        
 
     function isValidEmail(email) {
         return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
