@@ -52,6 +52,9 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!isValidRUT(data.rut)) {
             return "Por favor, ingrese un RUT válido.";
         }
+        if (!data.canal || data.canal === "") {
+            return "Por favor, seleccione al menos un canal.";
+        }
         return null; // Sin errores
     }
 
@@ -62,45 +65,40 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function isValidRUT(rut) {
-        // Elimina puntos y espacios, y convierte todo a mayúsculas
+        // Limpia el RUT y agrega el guion si es necesario
         let cleanRUT = rut.replace(/\./g, "").replace(/\s+/g, "").toUpperCase();
-    
-        // Si no contiene guion, lo agrega
         if (!cleanRUT.includes("-")) {
-            const cuerpo = cleanRUT.slice(0, -1); // Todo excepto el último carácter
-            const dv = cleanRUT.slice(-1); // Último carácter como dígito verificador
-            cleanRUT = `${cuerpo}-${dv}`; // Formatea el RUT con guion
+            const cuerpo = cleanRUT.slice(0, -1);
+            const dv = cleanRUT.slice(-1);
+            cleanRUT = `${cuerpo}-${dv}`;
         }
-    
-        // Divide el RUT en número y dígito verificador
+
+        // Valida formato del RUT
         const match = cleanRUT.match(/^(\d+)-([\dkK])$/);
         if (!match) {
-            return false; // Formato inválido
+            return false;
         }
-    
-        const cuerpo = match[1]; // Números del RUT
-        const dv = match[2]; // Dígito verificador
-    
-        // Validación de largo del cuerpo
+
+        const cuerpo = match[1];
+        const dv = match[2];
+
         if (cuerpo.length < 7 || cuerpo.length > 8) {
             return false;
         }
-    
-        // Calcula el dígito verificador esperado usando módulo 11
+
+        // Cálculo del dígito verificador
         let suma = 0;
         let multiplicador = 2;
-    
         for (let i = cuerpo.length - 1; i >= 0; i--) {
             suma += parseInt(cuerpo[i]) * multiplicador;
-            multiplicador = multiplicador === 7 ? 2 : multiplicador + 1; // Rota entre 2 y 7
+            multiplicador = multiplicador === 7 ? 2 : multiplicador + 1;
         }
-    
+
         const resto = 11 - (suma % 11);
         const dvEsperado = resto === 11 ? "0" : resto === 10 ? "K" : resto.toString();
-    
-        // Verifica si el dígito verificador es correcto
+
         return dv === dvEsperado;
-    }        
+    }
 
     function isValidEmail(email) {
         return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
