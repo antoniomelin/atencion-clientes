@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         try {
             // Envía los datos al servidor
-            const response = await fetch("/api/contact", {
+            const response = await fetch("/api/contact.php", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(data),
