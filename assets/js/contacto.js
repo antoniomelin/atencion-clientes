@@ -40,8 +40,8 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!data.nombre || data.nombre.trim() === "") {
             return "El campo 'Nombre' es obligatorio.";
         }
-        if (!data.apellido1 || data.apellido1.trim() === "") {
-            return "El campo 'Apellido 1' es obligatorio.";
+        if (!data.apellidos || data.apellidos.trim() === "") {
+            return "El campo 'Apellidos' es obligatorio.";
         }
         if (!data.email || !isValidEmail(data.email)) {
             return "Por favor, ingrese un correo electrónico válido.";
