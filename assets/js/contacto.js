@@ -52,8 +52,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 displayMessage(`${errorMessage}${errorDetail}`, "error");
                 }
         } catch (error) {
-            // Oculta el loader
-            loader.style.display = "none";
+            // Oculta el overlay
+            overlay.style.display = "none";
             submitButton.disabled = false;
 
             displayMessage("No se pudo enviar el formulario. Inténtalo más tarde.", "error");
