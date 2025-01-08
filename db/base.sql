@@ -7,7 +7,7 @@ CREATE TABLE contactos (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(100) NOT NULL,
     apellidos VARCHAR(100) NOT NULL,
-    rut VARCHAR(12) NOT NULL UNIQUE,
+    rut VARCHAR(12) NOT NULL,
     empresa VARCHAR(100),
     email VARCHAR(100) NOT NULL,
     telefono VARCHAR(15) NOT NULL,

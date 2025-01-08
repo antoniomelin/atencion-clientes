@@ -37,6 +37,25 @@ if (empty($data['nombre']) || empty($data['apellidos']) || empty($data['rut']) |
     exit;
 }
 
+// Verifica si existe una solicitud "Pendiente" para el mismo RUT
+$checkQuery = $mysqli->prepare('
+    SELECT 1 
+    FROM contactos c
+    JOIN seguimientos s ON c.id = s.contacto_id
+    WHERE c.rut = ? AND s.estado = "Pendiente"
+');
+$checkQuery->bind_param('s', $data['rut']);
+$checkQuery->execute();
+$checkQuery->store_result();
+
+if ($checkQuery->num_rows > 0) {
+    http_response_code(400);
+    echo json_encode(['message' => 'Ya existe una solicitud pendiente para este RUT.']);
+    $checkQuery->close();
+    exit;
+}
+$checkQuery->close();
+
 // Genera codigo seguimiento 6 alfa
 function generarCodigoSeguimiento($longitud = 6) {
     return strtoupper(substr(bin2hex(random_bytes($longitud)), 0, $longitud));
