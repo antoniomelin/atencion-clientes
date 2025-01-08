@@ -1,7 +1,4 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
 header('Content-Type: application/json');
 
 // Verifica que sea una solicitud POST
@@ -68,17 +65,30 @@ if ($query->execute()) {
     // Inserta el estado inicial en la tabla de seguimientos
     $estadoInicial = "Pendiente";
     $seguimientoQuery = $mysqli->prepare('INSERT INTO seguimientos (contacto_id, estado) VALUES (?, ?)');
-    $seguimientoQuery->bind_param('is', $contactoId, $estadoInicial);
-    $seguimientoQuery->execute();
-    $seguimientoQuery->close();
+    
+    if (!$seguimientoQuery) {
+        http_response_code(500);
+        echo json_encode(['message' => 'Error al preparar la consulta para insertar el seguimiento.', 'error' => $mysqli->error]);
+        exit;
+    }
 
-    // Respuesta exitosa
-    http_response_code(200);
-    echo json_encode(['message' => 'Contacto registrado con éxito.', 'codigo_seguimiento' => $codigoSeguimiento]);
+    $seguimientoQuery->bind_param('is', $contactoId, $estadoInicial);
+
+    if ($seguimientoQuery->execute()) {
+        $seguimientoQuery->close();
+
+        // Respuesta exitosa
+        http_response_code(200);
+        echo json_encode(['message' => 'Contacto registrado con éxito.', 'codigo_seguimiento' => $codigoSeguimiento]);
+    } else {
+        $seguimientoQuery->close();
+        http_response_code(500);
+        echo json_encode(['message' => 'Error al registrar el estado inicial del seguimiento.', 'error' => $seguimientoQuery->error]);
+    }
 } else {
-    // Respuesta de error
+    // Captura el error específico de la inserción
     http_response_code(500);
-    echo json_encode(['message' => 'Error al registrar el contacto.']);
+    echo json_encode(['message' => 'Error al registrar el contacto.', 'error' => $query->error]);
 }
 
 // Cierra las conexiones
