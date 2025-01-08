@@ -145,12 +145,6 @@ form button[type="button"]:hover {
   text-align: center;
 }
 
-.card-logo {
-  width: 80px;
-  height: auto;
-  margin-bottom: 1em;
-}
-
 .card-content p {
   font-size: 1.2em;
   color: #333;

@@ -73,15 +73,21 @@ document.addEventListener("DOMContentLoaded", () => {
         const messageCard = document.getElementById("message-card");
         const cardMessage = document.getElementById("card-message");
     
-        // Oculta el formulario
-        form.style.display = "none";
+        if (type === "success") {
+            // Oculta el formulario en caso de éxito
+            form.style.display = "none";
     
-        // Muestra la tarjeta con el mensaje
-        cardMessage.innerHTML = message;
-        messageCard.style.display = "flex"; // Cambiar de "none" a "flex"
-        
-        // Cambiar colores según el tipo de mensaje
-        cardMessage.style.color = type === "success" ? "green" : "red";
+            // Muestra la tarjeta con el mensaje de éxito
+            cardMessage.innerHTML = message;
+            messageCard.style.display = "flex"; // Mostrar la tarjeta
+            cardMessage.style.color = "green"; // Color para éxito
+        } else {
+            // Muestra el mensaje de error en el formulario sin ocultarlo
+            const formMessage = document.getElementById("form-message");
+            formMessage.innerHTML = message;
+            formMessage.style.display = "block";
+            formMessage.style.color = "red"; // Color para error
+        }
     }
 
     function isValidRUT(rut) {
