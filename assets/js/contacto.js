@@ -69,9 +69,19 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function displayMessage(message, type) {
-        messageDiv.innerHTML = message;
-        messageDiv.style.display = "block";
-        messageDiv.style.color = type === "success" ? "green" : "red";
+        const form = document.getElementById("contact-form");
+        const messageCard = document.getElementById("message-card");
+        const cardMessage = document.getElementById("card-message");
+    
+        // Oculta el formulario
+        form.style.display = "none";
+    
+        // Muestra la tarjeta con el mensaje
+        cardMessage.innerHTML = message;
+        messageCard.style.display = "flex"; // Cambiar de "none" a "flex"
+        
+        // Cambiar colores según el tipo de mensaje
+        cardMessage.style.color = type === "success" ? "green" : "red";
     }
 
     function isValidRUT(rut) {

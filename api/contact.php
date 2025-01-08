@@ -102,9 +102,9 @@ if ($query->execute()) {
         $seguimientoQuery->close();
 
         // Contenido del correo
-        $asunto = "Confirmación de Registro";
+        $asunto = "Confirmacion de Contacto";
         $contenido = "
-            <h1>¡Gracias por tu registro!</h1>
+            <h1>¡Gracias por tu contacto!</h1>
             <p>Tu solicitud fue registrada exitosamente.</p>
             <p>Tu código de seguimiento es: <strong>$codigoSeguimiento</strong></p>
         ";
