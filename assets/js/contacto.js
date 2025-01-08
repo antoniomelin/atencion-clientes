@@ -36,12 +36,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 // Limpia el formulario
                 form.reset();
             } else {
-                const error = await response.json();
-                displayMessage(
-                    error.message || "Ocurrió un error al enviar el formulario.",
-                    "error"
-                );
-            }
+                const error = await response.json();    
+                const errorMessage = error.message || "Ocurrió un error al enviar el formulario.";
+                const errorDetail = error.error ? `<br><small>${error.error}</small>` : "";
+                displayMessage(`${errorMessage}${errorDetail}`, "error");
+                }
         } catch (error) {
             displayMessage("No se pudo enviar el formulario. Inténtalo más tarde.", "error");
         }
