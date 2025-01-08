@@ -8,6 +8,8 @@ document.addEventListener("DOMContentLoaded", () => {
         // Recopila los datos del formulario
         const formData = new FormData(form);
         const data = Object.fromEntries(formData.entries());
+        const loader = document.getElementById("loader");
+        const submitButton = form.querySelector('button[type="submit"]');
 
         // Validación adicional
         const validationError = validateFields(data);
@@ -17,12 +19,19 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         try {
+            // Muestra el loader y deshabilita el botón de enviar
+            loader.style.display = "block";
+            submitButton.disabled = true;
             // Envía los datos al servidor
             const response = await fetch("/api/contact.php", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(data),
             });
+
+            // Oculta el loader
+            loader.style.display = "none";
+            submitButton.disabled = false;
 
             if (response.ok) {
                 const result = await response.json();
@@ -42,6 +51,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 displayMessage(`${errorMessage}${errorDetail}`, "error");
                 }
         } catch (error) {
+            // Oculta el loader
+            loader.style.display = "none";
+            submitButton.disabled = false;
+            
             displayMessage("No se pudo enviar el formulario. Inténtalo más tarde.", "error");
         }
     });
