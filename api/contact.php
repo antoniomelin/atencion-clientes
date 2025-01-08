@@ -45,14 +45,6 @@ function generarCodigoSeguimiento($longitud = 6) {
     return strtoupper(substr(bin2hex(random_bytes($longitud)), 0, $longitud));
 }
 
-// Conexión a la base de datos
-$mysqli = new mysqli('localhost', 'root', '', 'atencion_clientes');
-if ($mysqli->connect_error) {
-    http_response_code(500);
-    echo json_encode(['message' => 'Error al conectar con la base de datos.']);
-    exit;
-}
-
 $codigoSeguimiento = generarCodigoSeguimiento(6);
 
 // Inserta los datos del contacto en la base de datos
