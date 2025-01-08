@@ -110,13 +110,13 @@ if ($query->execute()) {
         ";
 
         // Enviar correo
-        if (enviarCorreo($data['email'], $asunto, $contenido)) {
-            http_response_code(200);
-            echo json_encode(['message' => 'Contacto registrado con éxito. Se envió un correo de confirmación.', 'codigo_seguimiento' => $codigoSeguimiento]);
-        } else {
-            http_response_code(500);
-            echo json_encode(['message' => 'Contacto registrado, pero ocurrió un error al enviar el correo.']);
-        }
+        // if (enviarCorreo($data['email'], $asunto, $contenido)) {
+        //     http_response_code(200);
+        //     echo json_encode(['message' => 'Contacto registrado con éxito. Se envió un correo de confirmación.', 'codigo_seguimiento' => $codigoSeguimiento]);
+        // } else {
+        //     http_response_code(500);
+        //     echo json_encode(['message' => 'Contacto registrado, pero ocurrió un error al enviar el correo.']);
+        // }
     } else {
         $seguimientoQuery->close();
         http_response_code(500);

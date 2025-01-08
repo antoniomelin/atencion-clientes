@@ -19,9 +19,10 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         try {
-            // Muestra el loader y deshabilita el botón de enviar
-            loader.style.display = "block";
+            // Muestra el overlay y deshabilita el botón de enviar
+            overlay.style.display = "flex";
             submitButton.disabled = true;
+
             // Envía los datos al servidor
             const response = await fetch("/api/contact.php", {
                 method: "POST",
@@ -29,8 +30,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 body: JSON.stringify(data),
             });
 
-            // Oculta el loader
-            loader.style.display = "none";
+            // Oculta el overlay
+            overlay.style.display = "none";
             submitButton.disabled = false;
 
             if (response.ok) {
@@ -54,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
             // Oculta el loader
             loader.style.display = "none";
             submitButton.disabled = false;
-            
+
             displayMessage("No se pudo enviar el formulario. Inténtalo más tarde.", "error");
         }
     });
