@@ -194,6 +194,11 @@ form button[type="button"]:hover {
     text-align: center;
     margin-top: 1em;
   }
+  .message-card {
+      padding: 1.5em;
+      margin: 1em; /* Asegura que no quede pegado a los bordes */
+      max-width: 90%; /* Reduce el ancho máximo para pantallas pequeñas */
+  }
 }
 
 @media (max-width: 480px) {
@@ -221,5 +226,10 @@ form button[type="button"]:hover {
   form button {
     font-size: 0.9em; /* Botones más pequeños */
     padding: 0.5em 1em;
+  }
+  .message-card {
+      padding: 1em;
+      margin: 1em; /* Margen más pequeño para dispositivos muy pequeños */
+      font-size: 0.9em; /* Reduce ligeramente el tamaño del texto */
   }
 }
