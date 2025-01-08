@@ -1,4 +1,10 @@
 <?php
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require __DIR__ . '/../vendor/autoload.php'; // Carga de Composer
+require_once __DIR__ . '/../includes/mailer.php'; // Carga la función enviarCorreo
+
 header('Content-Type: application/json');
 
 // Verifica que sea una solicitud POST
@@ -84,21 +90,33 @@ if ($query->execute()) {
     // Inserta el estado inicial en la tabla de seguimientos
     $estadoInicial = "Pendiente";
     $seguimientoQuery = $mysqli->prepare('INSERT INTO seguimientos (contacto_id, estado) VALUES (?, ?)');
-    
+    $seguimientoQuery->bind_param('is', $contactoId, $estadoInicial);
+
     if (!$seguimientoQuery) {
         http_response_code(500);
         echo json_encode(['message' => 'Error al preparar la consulta para insertar el seguimiento.', 'error' => $mysqli->error]);
         exit;
     }
 
-    $seguimientoQuery->bind_param('is', $contactoId, $estadoInicial);
-
     if ($seguimientoQuery->execute()) {
         $seguimientoQuery->close();
 
-        // Respuesta exitosa
-        http_response_code(200);
-        echo json_encode(['message' => 'Contacto registrado con éxito.', 'codigo_seguimiento' => $codigoSeguimiento]);
+        // Contenido del correo
+        $asunto = "Confirmación de Registro";
+        $contenido = "
+            <h1>¡Gracias por tu registro!</h1>
+            <p>Tu solicitud fue registrada exitosamente.</p>
+            <p>Tu código de seguimiento es: <strong>$codigoSeguimiento</strong></p>
+        ";
+
+        // Enviar correo
+        if (enviarCorreo($data['email'], $asunto, $contenido)) {
+            http_response_code(200);
+            echo json_encode(['message' => 'Contacto registrado con éxito. Se envió un correo de confirmación.', 'codigo_seguimiento' => $codigoSeguimiento]);
+        } else {
+            http_response_code(500);
+            echo json_encode(['message' => 'Contacto registrado, pero ocurrió un error al enviar el correo.']);
+        }
     } else {
         $seguimientoQuery->close();
         http_response_code(500);
