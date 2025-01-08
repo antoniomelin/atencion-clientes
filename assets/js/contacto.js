@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function displayMessage(message, type) {
-        messageDiv.textContent = message;
+        messageDiv.innerHTML = message;
         messageDiv.style.display = "block";
         messageDiv.style.color = type === "success" ? "green" : "red";
     }
