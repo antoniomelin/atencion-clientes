@@ -17,7 +17,7 @@ require __DIR__ . '/../vendor/autoload.php'; // Composer Autoload
 function enviarCorreo($emailDestino, $asunto, $contenido, $config = null) {
     if (!$config) {
         // Si no se pasa configuración, carga la configuración predeterminada desde el archivo config.php
-        $config = require __DIR__ . '/../config.php';
+        $config = require __DIR__ . '/../api/config.php';
     }
 
     $mail = new PHPMailer(true);
