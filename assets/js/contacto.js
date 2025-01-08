@@ -25,11 +25,22 @@ document.addEventListener("DOMContentLoaded", () => {
             });
 
             if (response.ok) {
-                displayMessage("¡Formulario enviado con éxito!", "success");
+                const result = await response.json();
+    
+                // Muestra el código de seguimiento al usuario
+                displayMessage(
+                    `¡Formulario enviado con éxito! Tu código de seguimiento es: <strong>${result.codigo_seguimiento}</strong>`,
+                    "success"
+                );
+    
+                // Limpia el formulario
                 form.reset();
             } else {
                 const error = await response.json();
-                displayMessage(error.message || "Ocurrió un error al enviar el formulario.", "error");
+                displayMessage(
+                    error.message || "Ocurrió un error al enviar el formulario.",
+                    "error"
+                );
             }
         } catch (error) {
             displayMessage("No se pudo enviar el formulario. Inténtalo más tarde.", "error");
