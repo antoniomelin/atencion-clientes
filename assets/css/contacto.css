@@ -174,22 +174,6 @@ form button[type="button"]:hover {
   animation: spin 1s linear infinite;
 }
 
-#canal-options {
-  display: flex;
-  flex-direction: column; /* Coloca los botones uno debajo del otro */
-  margin-bottom: 1em;
-}
-
-#canal-options label {
-  margin-bottom: 0.5em;
-  font-size: 1em;
-  color: #333;
-}
-
-#canal-options input[type="radio"] {
-  margin-right: 0.5em;
-}
-
 @keyframes spin {
   0% {
       transform: rotate(0deg);

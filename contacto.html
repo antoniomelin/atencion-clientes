@@ -47,18 +47,12 @@
             <label for="telefono">Teléfono <span class="required">*</span></label>
             <input type="tel" id="telefono" name="telefono" required>
         
-            <label for="canal">Canal <span class="required">*</span></label>
-            <div id="canal-options">
-                <label>
-                    <input type="radio" name="canal" value="tienda" checked> Tienda
-                </label>
-                <label>
-                    <input type="radio" name="canal" value="supermercado"> Supermercado
-                </label>
-                <label>
-                    <input type="radio" name="canal" value="otro"> Otro
-                </label>
-            </div>
+            <label for="canal">Canal</label>
+            <select id="canal" name="canal">
+                <option value="tienda" selected>Tienda</option>
+                <option value="supermercado">Supermercado</option>
+                <option value="otro">Otro</option>
+            </select>
         
             <div class="form-buttons">
                 <button type="submit">Enviar</button>
