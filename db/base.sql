@@ -11,15 +11,26 @@ CREATE TABLE contactos (
     empresa VARCHAR(100),
     email VARCHAR(100) NOT NULL,
     telefono VARCHAR(15) NOT NULL,
-    canal VARCHAR(50) NOT NULL,
-    codigo_seguimiento VARCHAR(10) NOT NULL UNIQUE
+    UNIQUE (rut, email) -- Evita duplicados de contactos
 );
 
--- Tabla de seguimientos
-CREATE TABLE seguimientos (
+-- Tabla de interacciones
+CREATE TABLE interacciones (
     id INT AUTO_INCREMENT PRIMARY KEY,
     contacto_id INT NOT NULL,
-    estado VARCHAR(50) NOT NULL,
-    fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    tipo ENUM('contacto', 'sugerencia', 'reclamo') NOT NULL,
+    canal VARCHAR(50) DEFAULT NULL, -- Solo para interacciones tipo contacto
+    motivo ENUM('felicitaciones', 'sugerencia', 'otro') DEFAULT NULL, -- Solo para sugerencias
+    mensaje TEXT, -- Mensaje de la interacción
+    codigo_seguimiento VARCHAR(10) NOT NULL UNIQUE, -- Código único para seguimiento
+    fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (contacto_id) REFERENCES contactos(id) ON DELETE CASCADE
+);
+
+CREATE TABLE seguimientos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    interaccion_id INT NOT NULL,
+    estado ENUM('pendiente', 'en_proceso', 'resuelto') DEFAULT 'pendiente',
+    fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (interaccion_id) REFERENCES interacciones(id) ON DELETE CASCADE
 );

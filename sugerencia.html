@@ -8,6 +8,11 @@
 </head>
 <body>
     <div class="form-container">
+        
+        <div id="overlay" class="overlay" style="display: none;">
+            <div class="loader"></div>
+        </div>
+
         <div class="suggestion-header">
             <a href="https://www.friosur.cl" target="_blank">
                 <img src="https://www.friosur.cl/wp-content/uploads/2023/11/image-6.png" alt="Friosur Logo" class="suggestion-logo">
@@ -18,11 +23,8 @@
             <label for="nombre">Nombre <span class="required">*</span></label>
             <input type="text" id="nombre" name="nombre" required>
 
-            <label for="apellido1">Apellido 1 <span class="required">*</span></label>
-            <input type="text" id="apellido1" name="apellido1" required>
-
-            <label for="apellido2">Apellido 2 <span class="required">*</span></label>
-            <input type="text" id="apellido2" name="apellido2" required>
+            <label for="apellido1">Apellidos <span class="required">*</span></label>
+            <input type="text" id="apellidos" name="apellidos" required>
 
             <label for="rut">RUT <span class="required">*</span></label>
             <input type="text" id="rut" name="rut" required>
@@ -38,8 +40,7 @@
 
             <label for="motivo">Motivo</label>
             <select id="motivo" name="motivo">
-                <option value="">Selecciona una opción</option>
-                <option value="felicitaciones">Felicitaciones</option>
+                <option value="felicitaciones" selected>Felicitaciones</option>
                 <option value="sugerencia">Sugerencia</option>
                 <option value="otro">Otro</option>
             </select>
