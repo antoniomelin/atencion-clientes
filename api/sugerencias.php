@@ -1,6 +1,6 @@
 <?php
 require_once __DIR__ . '/../includes/mailer.php';
-$config = require 'config.php';
+$config = require __DIR__ . '/config.php';
 
 header('Content-Type: application/json'); // Asegura que todas las respuestas sean JSON
 
@@ -25,7 +25,7 @@ $input = file_get_contents('php://input');
 $data = json_decode($input, true);
 
 // Validación básica
-if (!isset($data['nombre'], $data['apellidos'], $data['rut'], $data['email'], $data['telefono'], $data['motivo'])) {
+if (!isset($data['nombre'], $data['apellidos'], $data['rut'], $data['email'], $data['telefono'], $data['motivo'], $data['mensaje'])) {
     http_response_code(400);
     echo json_encode(['message' => 'Faltan campos obligatorios.']);
     exit;
@@ -39,39 +39,65 @@ function generarCodigoSeguimiento($longitud = 6) {
 $codigoSeguimiento = generarCodigoSeguimiento();
 
 try {
-    // Inserta la sugerencia
-    $query = $mysqli->prepare('
-        INSERT INTO sugerencias (nombre, apellidos, rut, empresa, email, telefono, motivo, mensaje, codigo_seguimiento)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+    // Verifica si el contacto ya existe
+    $contactoQuery = $mysqli->prepare('SELECT id FROM contactos WHERE rut = ? AND email = ?');
+    $contactoQuery->bind_param('ss', $data['rut'], $data['email']);
+    $contactoQuery->execute();
+    $contactoQuery->store_result();
+
+    if ($contactoQuery->num_rows > 0) {
+        // Contacto ya existe, obtenemos su ID
+        $contactoQuery->bind_result($contactoId);
+        $contactoQuery->fetch();
+    } else {
+        // Inserta el contacto si no existe
+        $insertContactoQuery = $mysqli->prepare('INSERT INTO contactos (nombre, apellidos, rut, empresa, email, telefono) VALUES (?, ?, ?, ?, ?, ?)');
+        $insertContactoQuery->bind_param(
+            'ssssss',
+            $data['nombre'],
+            $data['apellidos'],
+            $data['rut'],
+            $data['empresa'],
+            $data['email'],
+            $data['telefono']
+        );
+
+        if (!$insertContactoQuery->execute()) {
+            throw new Exception('Error al registrar el contacto: ' . $insertContactoQuery->error);
+        }
+
+        $contactoId = $insertContactoQuery->insert_id;
+        $insertContactoQuery->close();
+    }
+
+    $contactoQuery->close();
+
+    // Inserta la interacción
+    $interaccionQuery = $mysqli->prepare('
+        INSERT INTO interacciones (contacto_id, tipo, motivo, mensaje, codigo_seguimiento)
+        VALUES (?, "sugerencia", ?, ?, ?)
     ');
-    $query->bind_param(
-        'sssssssss',
-        $data['nombre'],
-        $data['apellidos'],
-        $data['rut'],
-        $data['empresa'],
-        $data['email'],
-        $data['telefono'],
+    $interaccionQuery->bind_param(
+        'isss',
+        $contactoId,
         $data['motivo'],
         $data['mensaje'],
         $codigoSeguimiento
     );
 
-    if (!$query->execute()) {
-      http_response_code(500);
-      echo json_encode(['message' => 'Error al registrar la sugerencia.', 'error' => $query->error]);
-      exit;
+    if (!$interaccionQuery->execute()) {
+        throw new Exception('Error al registrar la interacción: ' . $interaccionQuery->error);
     }
 
-    $sugerenciaId = $query->insert_id;
+    $interaccionId = $interaccionQuery->insert_id;
+    $interaccionQuery->close();
 
     // Inserta el estado inicial en la tabla de seguimientos
     $seguimientoQuery = $mysqli->prepare('
-        INSERT INTO seguimientos_sugerencias (sugerencia_id, estado)
-        VALUES (?, ?)
+        INSERT INTO seguimientos (interaccion_id, estado)
+        VALUES (?, "pendiente")
     ');
-    $estadoInicial = 'pendiente';
-    $seguimientoQuery->bind_param('is', $sugerenciaId, $estadoInicial);
+    $seguimientoQuery->bind_param('i', $interaccionId);
 
     if (!$seguimientoQuery->execute()) {
         throw new Exception('Error al registrar el seguimiento: ' . $seguimientoQuery->error);
