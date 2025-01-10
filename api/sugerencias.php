@@ -1,6 +1,6 @@
 <?php
 require_once __DIR__ . '/../includes/mailer.php';
-$config = require __DIR__ . '/../config.php';
+$config = require 'config.php';
 
 header('Content-Type: application/json'); // Asegura que todas las respuestas sean JSON
 
