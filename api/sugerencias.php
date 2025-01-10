@@ -45,16 +45,24 @@ if ($query->execute()) {
         $seguimientoQuery->close();
 
         // Envía correo de confirmación
-        $asunto = "Gracias por tu sugerencia";
-        $contenido = "
-            <h1>¡Gracias por tu sugerencia!</h1>
-            <p>Hemos recibido tu sugerencia y será analizada por nuestro equipo.</p>
-            <p>Tu código de seguimiento es: <strong>$codigoSeguimiento</strong></p>
-        ";
-        enviarCorreo($data['email'], $asunto, $contenido);
-
-        http_response_code(200);
-        echo json_encode(['message' => 'Sugerencia registrada con éxito.', 'codigo_seguimiento' => $codigoSeguimiento]);
+        try {
+            $asunto = "Gracias por tu Sugerencia!";
+            $contenido = "
+                <h1>¡Gracias por tu sugerencia!</h1>
+                <p>Hemos recibido tu sugerencia y será analizada por nuestro equipo.</p>
+                <p>Tu código de seguimiento es: <strong>$codigoSeguimiento</strong></p>
+            ";
+            #enviarCorreo($data['email'], $asunto, $contenido);
+            http_response_code(200);
+            echo json_encode(['message' => 'Sugerencia registrada con éxito.', 'codigo_seguimiento' => $codigoSeguimiento]);
+        } catch (Exception $e) {
+            error_log('Error al enviar el correo: ' . $e->getMessage());
+            http_response_code(200);
+            echo json_encode([
+                'message' => 'Sugerencia registrada, pero ocurrió un error al enviar el correo.',
+                'codigo_seguimiento' => $codigoSeguimiento
+            ]);
+        }
     } else {
         http_response_code(500);
         echo json_encode(['message' => 'Error al registrar el seguimiento.', 'error' => $seguimientoQuery->error]);

@@ -129,7 +129,7 @@ if ($insertInteraccionQuery->execute()) {
                 <p>Tu solicitud fue registrada exitosamente.</p>
                 <p>Tu código de seguimiento es: <strong>$codigoSeguimiento</strong></p>
             ";
-            enviarCorreo($data['email'], $asunto, $contenido);
+            #enviarCorreo($data['email'], $asunto, $contenido);
         } catch (Exception $e) {
             error_log('Error al enviar el correo: ' . $e->getMessage());
             http_response_code(500);
