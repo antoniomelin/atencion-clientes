@@ -1,6 +1,6 @@
-CREATE DATABASE atencion_clientes;
+CREATE DATABASE friosur_atencion;
 
-USE atencion_clientes;
+USE friosur_atencion;
 
 -- Tabla de contactos
 CREATE TABLE contactos (
