@@ -33,17 +33,27 @@ document.addEventListener("DOMContentLoaded", () => {
         submitButton.disabled = false;
     
         if (response.ok) {
-            const result = await response.json();
-            displayMessage(
-                `¡Formulario enviado con éxito! Tu sugerencia ha sido registrada con el código: <strong>${result.codigo_seguimiento}</strong>`,
-                "success"
-            );
-            form.reset();
+            try {
+                const result = await response.json();
+                displayMessage(
+                    `¡Formulario enviado con éxito! Tu sugerencia ha sido registrada con el código: <strong>${result.codigo_seguimiento}</strong>`,
+                    "success"
+                );
+                form.reset();
+            } catch (jsonError) {
+                throw new Error("Respuesta inesperada del servidor.");
+            }
         } else {
-            const error = await response.json();
-            const errorMessage = error.message || "Ocurrió un error al enviar el formulario.";
-            const errorDetail = error.error ? `<br><small>${error.error}</small>` : "";
-            displayMessage(`${errorMessage}${errorDetail}`, "error");
+            const errorText = await response.text();
+            try {
+                const error = JSON.parse(errorText);
+                const errorMessage = error.message || "Ocurrió un error al enviar el formulario.";
+                const errorDetail = error.error ? `<br><small>${error.error}</small>` : "";
+                displayMessage(`${errorMessage}${errorDetail}`, "error");
+            } catch (parseError) {
+                displayMessage("Error inesperado: El servidor devolvió una respuesta no válida.", "error");
+                console.error("Error al parsear JSON:", errorText);
+            }
         }
     } catch (error) {
         // Oculta el overlay y habilita el botón de enviar en caso de error inesperado
