@@ -33,18 +33,12 @@ document.addEventListener("DOMContentLoaded", () => {
         submitButton.disabled = false;
     
         if (response.ok) {
-            try {
-                const result = await response.json();
-                displayMessage(
-                    `¡Formulario enviado con éxito! Tu sugerencia ha sido registrada con el código: <strong>${result.codigo_seguimiento}</strong>`,
-                    "success"
-                );
-                form.reset();
-            } catch (jsonError) {
-              const errorText = await response.text();
-              console.error("Error al parsear JSON:", errorText);
-              throw new Error("Respuesta inesperada del servidor.");
-            }
+            const result = await response.json();
+            displayMessage(
+                `¡Formulario enviado con éxito! Tu sugerencia ha sido registrada con el código: <strong>${result.codigo_seguimiento}</strong>`,
+                "success"
+            );
+            form.reset();
         } else {
             const errorText = await response.text();
             try {
@@ -57,15 +51,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 console.error("Error al parsear JSON:", errorText);
             }
         }
-    } catch (error) {
-        // Oculta el overlay y habilita el botón de enviar en caso de error inesperado
-        overlay.style.display = "none";
-        submitButton.disabled = false;
-    
-        // Maneja errores de red o excepciones
-        displayMessage("No se pudo enviar el formulario. Inténtalo más tarde.", "error");
-        console.error("Error inesperado:", error);
-    }
+      } catch (error) {
+          // Oculta el overlay y habilita el botón de enviar en caso de error inesperado
+          overlay.style.display = "none";
+          submitButton.disabled = false;
+      
+          // Maneja errores de red o excepciones
+          displayMessage("No se pudo enviar el formulario. Inténtalo más tarde.", "error");
+          console.error("Error inesperado:", error);
+      }
   });
 
   function validateFields(data) {
