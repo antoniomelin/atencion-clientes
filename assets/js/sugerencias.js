@@ -41,7 +41,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 );
                 form.reset();
             } catch (jsonError) {
-                throw new Error("Respuesta inesperada del servidor.");
+              const errorText = await response.text();
+              console.error("Error al parsear JSON:", errorText);
+              throw new Error("Respuesta inesperada del servidor.");
             }
         } else {
             const errorText = await response.text();

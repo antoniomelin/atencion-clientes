@@ -58,7 +58,9 @@ try {
     );
 
     if (!$query->execute()) {
-        throw new Exception('Error al registrar la sugerencia: ' . $query->error);
+      http_response_code(500);
+      echo json_encode(['message' => 'Error al registrar la sugerencia.', 'error' => $query->error]);
+      exit;
     }
 
     $sugerenciaId = $query->insert_id;
