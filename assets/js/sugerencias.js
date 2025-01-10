@@ -17,42 +17,43 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       try {
-          // Muestra el loader y deshabilita el botón de enviar
-          overlay.style.display = "flex";
-          submitButton.disabled = true;
-
-          // Envía los datos al servidor
-          const response = await fetch("/api/sugerencias.php", {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify(data),
-          });
-
-          // Oculta el loader
-          overlay.style.display = "none";
-          submitButton.disabled = false;
-
-          if (response.ok) {
-              const result = await response.json();
-              displayMessage(
-                  `¡Formulario enviado con éxito! Tu sugerencia ha sido registrada.`,
-                  "success"
-              );
-              form.reset();
-          } else {
-              const error = await response.json();
-              const errorMessage = error.message || "Ocurrió un error al enviar el formulario.";
-              displayMessage(errorMessage, "error");
-          }
-      } catch (error) {
-        // Oculta el overlay
+        // Muestra el loader y deshabilita el botón de enviar
+        overlay.style.display = "flex";
+        submitButton.disabled = true;
+    
+        // Envía los datos al servidor
+        const response = await fetch("/api/sugerencias.php", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data),
+        });
+    
+        // Oculta el loader y habilita el botón de enviar
         overlay.style.display = "none";
         submitButton.disabled = false;
-           
-        const errorMessage = error.message || "Ocurrió un error al enviar el formulario.";
-        const errorDetail = error.error ? `<br><small>${error.error}</small>` : "";
-        displayMessage(`${errorMessage}${errorDetail}`, "error");
-      }
+    
+        if (response.ok) {
+            const result = await response.json();
+            displayMessage(
+                `¡Formulario enviado con éxito! Tu sugerencia ha sido registrada con el código: <strong>${result.codigo_seguimiento}</strong>`,
+                "success"
+            );
+            form.reset();
+        } else {
+            const error = await response.json();
+            const errorMessage = error.message || "Ocurrió un error al enviar el formulario.";
+            const errorDetail = error.error ? `<br><small>${error.error}</small>` : "";
+            displayMessage(`${errorMessage}${errorDetail}`, "error");
+        }
+    } catch (error) {
+        // Oculta el overlay y habilita el botón de enviar en caso de error inesperado
+        overlay.style.display = "none";
+        submitButton.disabled = false;
+    
+        // Maneja errores de red o excepciones
+        displayMessage("No se pudo enviar el formulario. Inténtalo más tarde.", "error");
+        console.error("Error inesperado:", error);
+    }
   });
 
   function validateFields(data) {
