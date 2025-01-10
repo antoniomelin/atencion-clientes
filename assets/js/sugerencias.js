@@ -73,24 +73,24 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function displayMessage(message, type) {
-      const messageDiv = document.getElementById("form-message") || createMessageDiv();
-      if (type === "success") {
-          form.style.display = "none";
-          messageDiv.innerHTML = `<p>${message}</p>`;
-          messageDiv.style.color = "green";
-          messageDiv.style.display = "block";
-      } else {
-          messageDiv.innerHTML = `<p>${message}</p>`;
-          messageDiv.style.color = "red";
-          messageDiv.style.display = "block";
-      }
-  }
+    const form = document.getElementById("sugerencia-form");
+    const messageCard = document.getElementById("message-card");
+    const cardMessage = document.getElementById("card-message");
 
-  function createMessageDiv() {
-      const div = document.createElement("div");
-      div.id = "form-message";
-      div.style.marginBottom = "1em";
-      form.insertBefore(div, form.firstChild);
-      return div;
-  }
+    if (type === "success") {
+        // Oculta el formulario en caso de éxito
+        form.style.display = "none";
+
+        // Muestra la tarjeta con el mensaje de éxito
+        cardMessage.innerHTML = message;
+        messageCard.style.display = "flex"; // Mostrar la tarjeta
+        cardMessage.style.color = "green"; // Color para éxito
+    } else {
+        // Muestra el mensaje de error en el formulario sin ocultarlo
+        const formMessage = document.getElementById("form-message");
+        formMessage.innerHTML = message;
+        formMessage.style.display = "block";
+        formMessage.style.color = "red"; // Color para error
+    }
+}
 });

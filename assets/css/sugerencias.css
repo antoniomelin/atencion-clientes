@@ -145,11 +145,14 @@ form button[type="button"]:hover {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
   overflow-wrap: break-word;
+  box-sizing: border-box;
 }
 
 .card-content p {
   font-size: 1.1em;
   color: #333;
+  margin: 0;
+  word-wrap: break-word;
 }
 
 .overlay {
@@ -198,6 +201,11 @@ form button[type="button"]:hover {
     text-align: center;
     margin-top: 1em;
   }
+  .message-card {
+      padding: 1.5em;
+      margin: 1em; /* Asegura que no quede pegado a los bordes */
+      max-width: 90%; /* Reduce el ancho máximo para pantallas pequeñas */
+  }
 }
 
 @media (max-width: 480px) {
@@ -226,5 +234,10 @@ form button[type="button"]:hover {
   form button {
     font-size: 0.9em;
     padding: 0.5em 1em;
+  }
+  .message-card {
+      padding: 1em;
+      margin: 0.5em auto; /* Margen más pequeño para dispositivos muy pequeños */
+      font-size: 0.9em; /* Reduce ligeramente el tamaño del texto */
   }
 }
