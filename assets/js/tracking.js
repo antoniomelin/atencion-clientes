@@ -25,8 +25,9 @@ document.addEventListener("DOMContentLoaded", () => {
           const response = await fetch(`/api/track.php?code=${encodeURIComponent(trackingCode)}`);
           if (response.ok) {
               const result = await response.json();
+              console.log(result)
               showTrackingResult(
-                  `Estado: <strong>${result.estado}</strong>. <br> Detalles: ${"En este estado desde: " || result.fecha}`,
+                  `Estado: <strong>${result.estado}</strong>. <br> Desde: ${result.fecha}`,
                   "green"
               );
           } else {
