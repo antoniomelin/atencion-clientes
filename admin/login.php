@@ -15,7 +15,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = $_POST['password'] ?? '';
 
     // Conexión a la base de datos
-    $mysqli = new mysqli($config['host'], $config['username'], $config['password'], $config['database']);
+    $mysqli = new mysqli(
+      $config['host'],
+      $config['username'],
+      $config['password'],
+      $config['database'],
+      $config['port']
+    );
     if ($mysqli->connect_error) {
         die('Error al conectar con la base de datos');
     }
