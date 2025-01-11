@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
           if (response.ok) {
               const result = await response.json();
               showTrackingResult(
-                  `Estado: <strong>${result.estado}</strong>. <br> Detalles: ${result.detalles || "No hay más información disponible."}`,
+                  `Estado: <strong>${result.estado}</strong>. <br> Detalles: ${"En este estado desde: " || result.fecha}`,
                   "green"
               );
           } else {
