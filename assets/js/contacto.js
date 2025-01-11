@@ -98,6 +98,8 @@ document.addEventListener("DOMContentLoaded", () => {
             cardMessage.innerHTML = message;
             messageCard.style.display = "flex"; // Mostrar la tarjeta
             cardMessage.style.color = "green"; // Color para éxito
+
+            volverButton.style.display = "inline-block";
         } else {
             // Muestra el mensaje de error en el formulario sin ocultarlo
             const formMessage = document.getElementById("form-message");

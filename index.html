@@ -27,11 +27,19 @@
 
 <!-- Contenedor de Seguimiento -->
 <div class="tracking-container">
+    <h2>Seguimiento de Solicitud</h2>
     <div class="tracking-form">
-        <input type="text" class="tracking-input" placeholder="Ingresa tu código de seguimiento">
-        <button class="tracking-button" onclick="trackAttention()"></button>
+        <input 
+            type="text" 
+            class="tracking-input" 
+            placeholder="Ingresa tu código de seguimiento (e.g., A98F46)">
+        <button class="tracking-button" onclick="trackAttention()">Buscar</button>
+    </div>
+    <div id="tracking-result" class="tracking-result" style="display: none;">
+        <!-- Aquí se mostrará el resultado del seguimiento -->
     </div>
 </div>
+
 
 <!-- Icono de Administración -->
 <div class="admin-icon">
