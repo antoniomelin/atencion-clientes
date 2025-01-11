@@ -62,10 +62,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="../assets/css/admin.css">
 </head>
 <body>
+    <!-- Header con logo -->
+    <header class="header">
+        <a href="https://www.friosur.cl" target="_blank">
+            <img class="logo" src="https://www.friosur.cl/wp-content/uploads/2023/11/image-6.png" alt="Friosur Logo">
+        </a>
+    </header>
+
+    <!-- Contenedor del formulario de login -->
     <div class="login-container">
         <form id="login-form" action="login.php" method="POST">
-            <h1>Iniciar Sesión</h1>
-            <?php if ($errorMessage): ?>
+            <h1>Administración</h1>
+            <?php if (!empty($errorMessage)): ?>
                 <div class="error-message"><?= htmlspecialchars($errorMessage) ?></div>
             <?php endif; ?>
             <label for="username">Usuario</label>
