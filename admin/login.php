@@ -1,6 +1,6 @@
 <?php
 require_once '../includes/auth.php';
-require_once '../api/config.php';
+$config = require __DIR__ . '/config.php';
 
 session_start();
 if (isset($_SESSION['admin_id'])) {
