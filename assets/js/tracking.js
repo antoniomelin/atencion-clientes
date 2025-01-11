@@ -39,7 +39,11 @@ document.addEventListener("DOMContentLoaded", () => {
           console.error("Error en la búsqueda de seguimiento:", error);
       }
   });
-
+  
+  // Escucha el evento de entrada para transformar el valor a mayúsculas
+  trackingInput.addEventListener("input", () => {
+    trackingInput.value = trackingInput.value.toUpperCase();
+  });
   // Función para mostrar resultados en el contenedor
   function showTrackingResult(message, color) {
       trackingResult.innerHTML = message;
