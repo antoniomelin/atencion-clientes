@@ -3,3 +3,4 @@ composer.json
 composer.lock
 /api/config.php
 /uploads/
+/db/_generate.php

@@ -11,8 +11,8 @@ if (isset($_SESSION['admin_id'])) {
 $errorMessage = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $username = $_POST['username'] ?? '';
-    $password = $_POST['password'] ?? '';
+   $username = htmlspecialchars(trim($_POST['username'] ?? ''));
+   $password = trim($_POST['password'] ?? '');
 
     // Conexión a la base de datos
     $mysqli = new mysqli(
@@ -23,7 +23,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       $config['port']
     );
     if ($mysqli->connect_error) {
-        die('Error al conectar con la base de datos');
+      $errorMessage = 'Error al conectar con la base de datos.';
+      error_log('Error de conexión: ' . $mysqli->connect_error);
+      exit;
     }
 
     // Consulta del usuario
@@ -46,6 +48,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else {
         $errorMessage = 'Usuario no encontrado.';
     }
+    $query->close();
+    $mysqli->close();
 }
 ?>
 
