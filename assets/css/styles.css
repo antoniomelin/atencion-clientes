@@ -138,6 +138,11 @@ h1 {
   text-transform: uppercase;
 }
 
+/* Estilo específico para el placeholder */
+.tracking-input::placeholder {
+  text-transform: none; /* Asegura que el placeholder mantenga su formato original */
+}
+
 .tracking-input:focus {
   outline: none;
   border-color: #0c3273;
