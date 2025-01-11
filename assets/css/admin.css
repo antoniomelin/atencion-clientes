@@ -44,6 +44,7 @@ body {
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }
 
+/* Título principal */
 h1 {
   font-size: 1.5em;
   color: #333;
@@ -51,16 +52,23 @@ h1 {
   font-weight: bold;
 }
 
-/* Campos del formulario */
+/* Formulario */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra los elementos del formulario horizontalmente */
+}
+
 form label {
-  display: block;
   font-size: 1em;
   margin-bottom: 0.5em;
   color: #333333;
+  width: 100%; /* Asegura que los labels ocupen el ancho completo */
+  text-align: left; /* Alinea los labels a la izquierda */
 }
 
 form input {
-  width: 100%;
+  width: 100%; /* Hace que los inputs ocupen todo el ancho del formulario */
   padding: 0.75em;
   margin-bottom: 1em;
   border: 1px solid #CCCCCC;
@@ -74,7 +82,8 @@ input:focus {
 }
 
 /* Botón de login */
-button {
+form button {
+  width: 100%; /* Hace que el botón sea del mismo ancho que los inputs */
   padding: 0.75em 1.5em;
   font-size: 1em;
   color: white;
@@ -85,7 +94,7 @@ button {
   transition: background-color 0.3s ease;
 }
 
-button:hover {
+form button:hover {
   background-color: #0a285a;
 }
 
@@ -95,6 +104,7 @@ button:hover {
   margin-bottom: 1em;
   font-size: 0.9em;
   font-weight: bold;
+  text-align: center;
 }
 
 /* Responsivo */
