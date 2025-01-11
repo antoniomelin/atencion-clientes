@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/config.php';
+$config = require __DIR__ . '/config.php';
 
 header('Content-Type: application/json');
 
@@ -32,11 +32,11 @@ $_SESSION['rate_limit'][$ip]['count']++;
 
 // Conexión a la base de datos
 $mysqli = new mysqli(
-    $config['host'],
-    $config['username'],
-    $config['password'],
-    $config['database'],
-    $config['port']
+  $config['host'],
+  $config['username'],
+  $config['password'],
+  $config['database'],
+  $config['port']
 );
 
 // Verifica conexión
