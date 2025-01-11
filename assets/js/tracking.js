@@ -25,9 +25,19 @@ document.addEventListener("DOMContentLoaded", () => {
           const response = await fetch(`/api/track.php?code=${encodeURIComponent(trackingCode)}`);
           if (response.ok) {
               const result = await response.json();
-              console.log(result)
+              
+              // Convierte la fecha al formato deseado
+              const rawDate = new Date(result.fecha);
+              const formattedDate = new Intl.DateTimeFormat('es-ES', {
+                  weekday: 'long',
+                  day: '2-digit',
+                  month: '2-digit',
+                  year: 'numeric'
+              }).format(rawDate);
+
+              console.log(result);
               showTrackingResult(
-                  `Estado: <strong>${result.estado}</strong>. <br> Desde: ${result.fecha}`,
+                  `Estado: <strong>${result.estado}</strong>. <br> Desde: ${formattedDate.charAt(0).toUpperCase() + formattedDate.slice(1)}`,
                   "green"
               );
           } else {
