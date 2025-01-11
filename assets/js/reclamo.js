@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
           submitButton.disabled = true;
 
           // Envía los datos al servidor
-          const response = await fetch("/api/reclamos.php", {
+          const response = await fetch("/api/reclamo.php", {
               method: "POST",
               body: formData, // FormData ya maneja los archivos
           });
