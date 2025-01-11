@@ -27,6 +27,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 3em; /* Espacio reservado para el footer */
 }
 
 /* Contenedor del logo y título dentro del formulario */
@@ -186,6 +187,23 @@ form button[type="button"]:hover {
   }
 }
 
+/* Botón Volver */
+.volver-button {
+  background-color: #888888; /* Gris medio */
+  color: white;
+  padding: 0.75em 1.5em;
+  font-size: 1em;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 1em; /* Espacio entre el mensaje y el botón */
+}
+
+.volver-button:hover {
+  background-color: #666666; /* Gris más oscuro */
+}
+
 /* Responsivo */
 @media (max-width: 768px) {
   .form-container {
@@ -206,23 +224,6 @@ form button[type="button"]:hover {
       margin: 1em; /* Asegura que no quede pegado a los bordes */
       max-width: 90%; /* Reduce el ancho máximo para pantallas pequeñas */
   }
-}
-
-/* Botón Volver */
-.volver-button {
-  background-color: #888888; /* Gris medio */
-  color: white;
-  padding: 0.75em 1.5em;
-  font-size: 1em;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  margin-top: 1em; /* Espacio entre el mensaje y el botón */
-}
-
-.volver-button:hover {
-  background-color: #666666; /* Gris más oscuro */
 }
 
 @media (max-width: 480px) {

@@ -24,9 +24,14 @@ CREATE TABLE interacciones (
     mensaje TEXT, -- Mensaje de la interacción
     codigo_seguimiento VARCHAR(10) NOT NULL UNIQUE, -- Código único para seguimiento
     fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    lugar_compra VARCHAR(255) DEFAULT NULL, -- Lugar de compra para reclamos
+    boleta VARCHAR(50) DEFAULT NULL, -- Número de boleta o factura para reclamos
+    foto_boleta VARCHAR(255) DEFAULT NULL, -- Ruta de la foto de la boleta
+    foto_producto VARCHAR(255) DEFAULT NULL, -- Ruta de la foto del producto
     FOREIGN KEY (contacto_id) REFERENCES contactos(id) ON DELETE CASCADE
 );
 
+-- Tabla de seguimientos
 CREATE TABLE seguimientos (
     id INT AUTO_INCREMENT PRIMARY KEY,
     interaccion_id INT NOT NULL,
