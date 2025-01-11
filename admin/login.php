@@ -72,7 +72,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <!-- Contenedor del formulario de login -->
     <div class="login-container">
         <form id="login-form" action="login.php" method="POST">
-            <h1>Administración</h1>
             <?php if (!empty($errorMessage)): ?>
                 <div class="error-message"><?= htmlspecialchars($errorMessage) ?></div>
             <?php endif; ?>
