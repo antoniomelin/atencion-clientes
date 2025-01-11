@@ -24,10 +24,9 @@ document.addEventListener("DOMContentLoaded", () => {
           // Llama al servidor para buscar el código
           const response = await fetch(`/api/track.php?code=${encodeURIComponent(trackingCode)}`);
           if (response.ok) {
-              const result = await response.json();
-              
-              // Convierte la fecha al formato deseado
+              const result  = await response.json();
               const rawDate = new Date(result.fecha);
+              
               const formattedDate = new Intl.DateTimeFormat('es-ES', {
                   weekday: 'long',
                   day: '2-digit',
@@ -35,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
                   year: 'numeric'
               }).format(rawDate);
 
-              console.log(result);
+              // console.log(result);
               showTrackingResult(
                   `Estado: <strong>${result.estado}</strong>. <br> Desde: ${formattedDate.charAt(0).toUpperCase() + formattedDate.slice(1)}`,
                   "green"
