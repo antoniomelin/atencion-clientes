@@ -88,6 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const form = document.getElementById("contact-form");
         const messageCard = document.getElementById("message-card");
         const cardMessage = document.getElementById("card-message");
+        const volverButton = document.getElementById("volver-button");
     
         if (type === "success") {
             // Oculta el formulario en caso de éxito
@@ -103,6 +104,7 @@ document.addEventListener("DOMContentLoaded", () => {
             formMessage.innerHTML = message;
             formMessage.style.display = "block";
             formMessage.style.color = "red"; // Color para error
+            volverButton.style.display = "inline-block";
         }
     }
 

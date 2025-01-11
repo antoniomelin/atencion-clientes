@@ -72,6 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("sugerencia-form");
     const messageCard = document.getElementById("message-card");
     const cardMessage = document.getElementById("card-message");
+    const volverButton = document.getElementById("volver-button");
 
     if (type === "success") {
         // Oculta el formulario en caso de éxito
@@ -81,12 +82,15 @@ document.addEventListener("DOMContentLoaded", () => {
         cardMessage.innerHTML = message;
         messageCard.style.display = "flex"; // Mostrar la tarjeta
         cardMessage.style.color = "green"; // Color para éxito
+
+        volverButton.style.display = "inline-block";
     } else {
         // Muestra el mensaje de error en el formulario sin ocultarlo
         const formMessage = document.getElementById("form-message");
         formMessage.innerHTML = message;
         formMessage.style.display = "block";
         formMessage.style.color = "red"; // Color para error
+        volverButton.style.display = "inline-block";
     }
 }
 });
