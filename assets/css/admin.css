@@ -190,7 +190,7 @@ h1 {
 
   .interaction-item > .tracking-code {
     flex: 0.7;
-    text-align: right;
+    text-align: center;
   }
 }
 
