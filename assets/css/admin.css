@@ -124,7 +124,7 @@ h1 {
 /* Flex layout for alignment */
 .interaction-item > .interaction-icon {
   flex: 0.1;
-  text-align: right;
+  text-align: center;
 }
 
 .interaction-item > .interaction-type {
