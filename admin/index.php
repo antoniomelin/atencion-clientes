@@ -10,6 +10,7 @@ requireAuth();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panel de Administración</title>
     <link rel="stylesheet" href="../assets/css/admin.css">
+    <script defer src="../assets/js/admin.js"></script>
 </head>
 <body>
     <!-- Header con logo -->
@@ -31,24 +32,33 @@ requireAuth();
                 <!-- Fila de ejemplo -->
                 <li class="interaction-item pending">
                     <span class="interaction-icon">📞</span>
-                    <span class="tracking-code">A98F46</span>
                     <span class="interaction-type">Contacto</span>
+                    <span class="tracking-code">A98F46</span>
                     <span class="interaction-status">Pendiente</span>
                     <button class="toggle-details">Detalles</button>
+                    <div class="details-content" style="display: none;">
+                        <p>Detalles adicionales sobre esta interacción.</p>
+                    </div>
                 </li>
                 <li class="interaction-item in-progress">
                     <span class="interaction-icon">💡</span>
-                    <span class="tracking-code">783903</span>
                     <span class="interaction-type">Sugerencia</span>
+                    <span class="tracking-code">783903</span>
                     <span class="interaction-status">En Proceso</span>
                     <button class="toggle-details">Detalles</button>
+                    <div class="details-content" style="display: none;">
+                        <p>Detalles adicionales sobre esta sugerencia.</p>
+                    </div>
                 </li>
                 <li class="interaction-item resolved">
                     <span class="interaction-icon">⚠️</span>
-                    <span class="tracking-code">546A6F</span>
                     <span class="interaction-type">Reclamo</span>
+                    <span class="tracking-code">546A6F</span>
                     <span class="interaction-status">Resuelto</span>
                     <button class="toggle-details">Detalles</button>
+                    <div class="details-content" style="display: none;">
+                        <p>Detalles adicionales sobre este reclamo.</p>
+                    </div>
                 </li>
             </ul>
         </div>

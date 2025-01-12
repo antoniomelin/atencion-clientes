@@ -141,3 +141,77 @@ body {
   color: white; /* Blanco para los íconos */
   margin-right: 1em;
 }
+
+/* Lista de interacciones */
+.interaction-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.interaction-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1em;
+  margin-bottom: 0.5em;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+/* Colores según el estado */
+.pending {
+  background-color: #ffe6e6;
+}
+
+.in-progress {
+  background-color: #fffbe6;
+}
+
+.resolved {
+  background-color: #e6ffe6;
+}
+
+/* Icono */
+.interaction-icon {
+  font-size: 1.5em;
+  margin-right: 0.5em;
+  flex: 0 0 auto;
+}
+
+/* Tipo, código y estado */
+.interaction-type,
+.tracking-code,
+.interaction-status {
+  flex: 1;
+  text-align: left;
+  font-size: 1em;
+}
+
+/* Botón Detalles */
+.toggle-details {
+  padding: 0.5em 1em;
+  background-color: #0c3273;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.toggle-details:hover {
+  background-color: #0a285a;
+}
+
+/* Contenido de detalles oculto */
+.details-content {
+  padding: 1em;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  margin-top: 0.5em;
+  font-size: 0.9em;
+  color: #333;
+}
+
