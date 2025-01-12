@@ -215,3 +215,19 @@ body {
   color: #333;
 }
 
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 768px) {
+  .tracking-code, .interaction-status {
+    display: none; /* Oculta el código y el estado en pantallas pequeñas */
+  }
+
+  .interaction-type {
+    flex: 1;
+    text-align: center; /* Centra el tipo de interacción */
+  }
+
+  .interaction-item {
+    justify-content: center; /* Centra los elementos */
+  }
+}
+
