@@ -80,7 +80,8 @@ h1 {
 }
 
 .interaction-item {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; /* Tres columnas */
   align-items: center;
   justify-content: space-between;
   padding: 1em;
@@ -91,7 +92,7 @@ h1 {
 }
 
 .interaction-item:hover {
-  background-color: rgba(0, 0, 0, 0.05);
+  filter: brightness(1.1);
 }
 
 /* Estados de interacción */
@@ -110,34 +111,34 @@ h1 {
   color: #fff;
 }
 
+/* Comportamiento al hacer clic */
+.interaction-item.clicked {
+  filter: brightness(0.9); /* Color más claro al hacer clic */
+}
+
 /* Elementos de la interacción */
 .interaction-icon {
+  justify-self: start;
   font-size: 1.5em;
   margin-right: 1em;
+  flex: 0 0 auto;
 }
 
 .interaction-type {
-  flex: 1;
+  text-align: left;
   font-weight: bold;
 }
 
 .tracking-code {
-  display: inline-block;
-  margin-left: 1em;
+  justify-self: center;
+  text-align: center;
 }
 
 .interaction-status {
+  justify-self: end;
   font-size: 0.9em;
   margin-left: auto;
-}
-
-.details-content {
-  display: none;
-  margin-top: 1em;
-  background-color: #f9f9f9;
-  padding: 1em;
-  border-radius: 8px;
-  border: 1px solid #ddd;
+  text-align: right;
 }
 
 /* Responsivo */
@@ -147,16 +148,15 @@ h1 {
   }
 
   .interaction-item {
-    flex-direction: column;
-    align-items: flex-start;
+    grid-template-columns: 1fr 1fr; /* Dos columnas en pantallas pequeñas */
+  }
+
+  .interaction-type {
+    display: none; /* Oculta el tipo de interacción */
   }
 
   .interaction-status {
-    display: none;
-  }
-
-  .tracking-code {
-    display: none;
+    justify-self: end;
   }
 }
 
@@ -177,7 +177,7 @@ h1 {
     font-size: 1.2em;
   }
 
-  .interaction-type {
-    font-size: 1em;
+  .tracking-code {
+    font-size: 0.9em;
   }
 }
