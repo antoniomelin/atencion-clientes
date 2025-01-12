@@ -133,3 +133,11 @@ body {
 .logout-link:hover {
   text-decoration: underline;
 }
+/* Íconos en la lista */
+.interaction-icon {
+  flex: 0 0 2em; /* Tamaño fijo */
+  text-align: center;
+  font-size: 1.2em; /* Ajusta el tamaño del ícono */
+  color: white; /* Blanco para los íconos */
+  margin-right: 1em;
+}
