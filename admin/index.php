@@ -1,7 +1,3 @@
-<?php
-require_once '../includes/auth.php';
-requireAuth();
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,18 +7,39 @@ requireAuth();
     <link rel="stylesheet" href="../assets/css/admin.css">
 </head>
 <body>
-    <header class="admin-header">
-        <h1>Panel de Administración</h1>
-        <a href="logout.php">Cerrar Sesión</a>
+    <!-- Header con logo -->
+    <header class="header">
+        <a href="https://www.friosur.cl" target="_blank">
+            <img class="logo" src="https://www.friosur.cl/wp-content/uploads/2023/11/image-6.png" alt="Friosur Logo">
+        </a>
     </header>
+
+    <!-- Contenedor principal -->
     <main class="admin-container">
-        <section class="dashboard-options">
-            <h2>Opciones</h2>
-            <ul>
-                <li><a href="interactions.php">Gestión de Interacciones</a></li>
-                <li><a href="stats.php">Estadísticas</a></li>
+        <h1>Panel de Administración</h1>
+        <a href="logout.php" class="logout-link">Cerrar Sesión</a>
+
+        <!-- Contenedor de tarjeta -->
+        <div class="card">
+            <h2>Interacciones</h2>
+            <ul class="interaction-list">
+                <li class="interaction-item pending">
+                    <span class="tracking-code">A98F46</span>
+                    <span class="interaction-status">Pendiente</span>
+                    <button class="toggle-details">Detalles</button>
+                </li>
+                <li class="interaction-item in-progress">
+                    <span class="tracking-code">783903</span>
+                    <span class="interaction-status">En Proceso</span>
+                    <button class="toggle-details">Detalles</button>
+                </li>
+                <li class="interaction-item resolved">
+                    <span class="tracking-code">546A6F</span>
+                    <span class="interaction-status">Resuelto</span>
+                    <button class="toggle-details">Detalles</button>
+                </li>
             </ul>
-        </section>
+        </div>
     </main>
 </body>
 </html>
