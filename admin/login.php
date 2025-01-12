@@ -62,6 +62,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="../assets/css/login.css">
 </head>
 <body>
+    <!-- Icono de la casita -->
+    <a href="../index.html" class="home-icon" title="Volver al inicio">🏠</a>
+
     <!-- Header con logo -->
     <header class="header">
         <a href="https://www.friosur.cl" target="_blank">
