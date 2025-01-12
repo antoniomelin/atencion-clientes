@@ -92,6 +92,12 @@ h1 {
   cursor: pointer;
 }
 
+.interaction-item.clicked {
+  flex-direction: column; /* Cambia a columna */
+  align-items: flex-start; /* Alinea elementos al inicio */
+  padding-bottom: 2em; /* Espacio para los detalles */
+}
+
 .interaction-item:hover {
   transform: scale(1.02);
 }
@@ -157,9 +163,14 @@ h1 {
   text-align: center;
 }
 
+.interaction-item.clicked .details-content {
+  display: block;
+}
+
 .interaction-item.clicked {
-  flex-direction: column;
-  align-items: center;
+  flex-direction: column; /* Cambia a columna */
+  align-items: flex-start; /* Alinea elementos al inicio */
+  padding-bottom: 2em; /* Espacio para los detalles */
 }
 
 .interaction-item.clicked .interaction-icon,
@@ -173,6 +184,12 @@ h1 {
 .interaction-item.clicked .tracking-code {
   font-size: 1.2em;
   font-weight: bold;
+
+}
+/* Elementos principales en la misma fila */
+.interaction-item > span {
+  flex: 1;
+  text-align: center;
 }
 
 /* Responsiveness */
