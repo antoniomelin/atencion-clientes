@@ -64,8 +64,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
     <!-- Botón de inicio -->
     <div class="home-icon">
-        <a href="index.html">
-            <img src="../assets/images/icono-home.png" alt="Inicio" class="home-icon-image">
+        <a href="../index.html">
+            <img src="../assets/images/icono-home-blanco.png" alt="Inicio" class="home-icon-image">
         </a>
     </div>
 
