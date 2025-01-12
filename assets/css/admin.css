@@ -102,7 +102,7 @@ h1 {
 }
 
 .interaction-item.pending.clicked {
-  background-color: #ffe08a; /* Lighter yellow for selected */
+  background-color: #ffe08a; /* Lighter yellow */
 }
 
 .interaction-item.in-progress {
@@ -110,7 +110,7 @@ h1 {
 }
 
 .interaction-item.in-progress.clicked {
-  background-color: #8acde1; /* Lighter blue for selected */
+  background-color: #8acde1; /* Lighter blue */
 }
 
 .interaction-item.resolved {
@@ -118,56 +118,64 @@ h1 {
 }
 
 .interaction-item.resolved.clicked {
-  background-color: #9fd7b5; /* Lighter green for selected */
+  background-color: #9fd7b5; /* Lighter green */
 }
 
 /* Flex layout for alignment */
-.interaction-item > span {
-  flex: 1;
-  text-align: center;
-}
-
-.interaction-item .interaction-icon {
+.interaction-item > .interaction-icon {
+  flex: 0.2;
   text-align: left;
-  flex: 0.2;
 }
 
-.interaction-item .tracking-code {
-  flex: 0.6;
-  text-align: center;
-}
-
-.interaction-item .interaction-status {
-  flex: 0.2;
-  text-align: right;
-}
-
-/* Elementos de la interacción */
-.interaction-icon {
-  justify-self: start;
-  font-size: 1.5em;
-  margin-right: 1em;
-  flex: 0 0 auto;
-}
-
-.interaction-type {
+.interaction-item > .interaction-type {
+  flex: 0.3;
   text-align: left;
   font-weight: bold;
 }
 
-.tracking-code {
-  justify-self: center;
+.interaction-item > .tracking-code {
+  flex: 0.4;
   text-align: center;
+  font-weight: bold;
 }
 
-.interaction-status {
-  justify-self: end;
-  font-size: 0.9em;
-  margin-left: auto;
+.interaction-item > .interaction-status {
+  flex: 0.2;
   text-align: right;
 }
 
-/* Responsivo */
+/* Details content for expanded state */
+.details-content {
+  display: none;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 8px;
+  padding: 1em;
+  margin-top: 1em;
+  color: #333;
+  font-size: 0.9em;
+  text-align: center;
+}
+
+.interaction-item.clicked {
+  flex-direction: column;
+  align-items: center;
+}
+
+.interaction-item.clicked .interaction-icon,
+.interaction-item.clicked .interaction-type,
+.interaction-item.clicked .tracking-code,
+.interaction-item.clicked .interaction-status {
+  margin-bottom: 0.5em;
+  text-align: center;
+}
+
+.interaction-item.clicked .tracking-code {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+/* Responsiveness */
 @media (max-width: 768px) {
   .admin-container {
     width: 85%;
@@ -177,7 +185,12 @@ h1 {
     display: none;
   }
 
-  .interaction-item .tracking-code {
+  .interaction-item > .interaction-icon {
+    flex: 0.3;
+  }
+
+  .interaction-item > .tracking-code {
+    flex: 0.7;
     text-align: right;
   }
 }
@@ -195,7 +208,7 @@ h1 {
     padding: 0.5em;
   }
 
-  .interaction-icon {
+  .interaction-item .interaction-icon {
     font-size: 1.2em;
   }
 

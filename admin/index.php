@@ -29,13 +29,12 @@ requireAuth();
         <div class="card">
             <h2>Interacciones</h2>
             <ul class="interaction-list">
-                <!-- Fila de ejemplo -->
                 <li class="interaction-item pending">
                     <span class="interaction-icon">📞</span>
                     <span class="interaction-type">Contacto</span>
                     <span class="tracking-code">A98F46</span>
                     <span class="interaction-status">Pendiente</span>
-                    <div class="details-content" style="display: none;">
+                    <div class="details-content">
                         <p>Detalles adicionales sobre esta interacción.</p>
                     </div>
                 </li>
@@ -44,7 +43,7 @@ requireAuth();
                     <span class="interaction-type">Sugerencia</span>
                     <span class="tracking-code">783903</span>
                     <span class="interaction-status">En Proceso</span>
-                    <div class="details-content" style="display: none;">
+                    <div class="details-content">
                         <p>Detalles adicionales sobre esta sugerencia.</p>
                     </div>
                 </li>
@@ -53,7 +52,7 @@ requireAuth();
                     <span class="interaction-type">Reclamo</span>
                     <span class="tracking-code">546A6F</span>
                     <span class="interaction-status">Resuelto</span>
-                    <div class="details-content" style="display: none;">
+                    <div class="details-content">
                         <p>Detalles adicionales sobre este reclamo.</p>
                     </div>
                 </li>
