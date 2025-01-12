@@ -43,6 +43,7 @@ body {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
+
 .home-icon-image {
   width: 40px;
   height: 40px;
@@ -88,6 +89,7 @@ form input {
   border: 1px solid #CCCCCC;
   border-radius: 6px;
   font-size: 1em;
+  box-sizing: border-box;
 }
 
 input:focus {
@@ -98,12 +100,12 @@ input:focus {
 /* Botón de login */
 button {
   width: 100%;
-  padding: 0.75em 1.5em;
+  padding: 0.75em;
   font-size: 1em;
   color: white;
   background-color: #0c3273;
   border: none;
-  border-radius: 8px;
+  border-radius: 6px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
