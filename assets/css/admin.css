@@ -80,6 +80,7 @@ h1 {
 }
 
 /* General styling for interaction items */
+/* Elementos principales en una sola línea */
 .interaction-item {
   display: flex;
   justify-content: space-between;
@@ -88,8 +89,9 @@ h1 {
   border-radius: 8px;
   margin-bottom: 0.5em;
   color: white;
-  transition: background-color 0.3s ease, transform 0.2s ease;
   cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  position: relative; /* Necesario para posicionar el contenido adicional */
 }
 
 .interaction-item.clicked {
@@ -146,7 +148,7 @@ h1 {
 }
 
 .interaction-item > .interaction-status {
-  flex: 0.2;
+  flex: 0.3;
   text-align: right;
 }
 
@@ -171,14 +173,6 @@ h1 {
   flex-direction: column; /* Cambia a columna */
   align-items: flex-start; /* Alinea elementos al inicio */
   padding-bottom: 2em; /* Espacio para los detalles */
-}
-
-.interaction-item.clicked .interaction-icon,
-.interaction-item.clicked .interaction-type,
-.interaction-item.clicked .tracking-code,
-.interaction-item.clicked .interaction-status {
-  margin-bottom: 0.5em;
-  text-align: center;
 }
 
 .interaction-item.clicked .tracking-code {
