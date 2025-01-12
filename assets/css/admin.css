@@ -79,41 +79,67 @@ h1 {
   margin: 0;
 }
 
+/* General styling for interaction items */
 .interaction-item {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr; /* Tres columnas */
-  align-items: center;
+  display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 1em;
-  margin-bottom: 0.5em;
   border-radius: 8px;
+  margin-bottom: 0.5em;
+  color: white;
+  transition: background-color 0.3s ease, transform 0.2s ease;
   cursor: pointer;
-  transition: background-color 0.3s ease;
 }
 
 .interaction-item:hover {
-  filter: brightness(1.1);
+  transform: scale(1.02);
 }
 
-/* Estados de interacción */
-.pending {
-  background-color: #f6c23e;
-  color: #fff;
+/* Specific background colors for states */
+.interaction-item.pending {
+  background-color: #f4c542;
 }
 
-.in-progress {
-  background-color: #36b9cc;
-  color: #fff;
+.interaction-item.pending.clicked {
+  background-color: #ffe08a; /* Lighter yellow for selected */
 }
 
-.resolved {
-  background-color: #1cc88a;
-  color: #fff;
+.interaction-item.in-progress {
+  background-color: #4ba3c3;
 }
 
-/* Comportamiento al hacer clic */
-.interaction-item.clicked {
-  filter: brightness(0.9); /* Color más claro al hacer clic */
+.interaction-item.in-progress.clicked {
+  background-color: #8acde1; /* Lighter blue for selected */
+}
+
+.interaction-item.resolved {
+  background-color: #47b475;
+}
+
+.interaction-item.resolved.clicked {
+  background-color: #9fd7b5; /* Lighter green for selected */
+}
+
+/* Flex layout for alignment */
+.interaction-item > span {
+  flex: 1;
+  text-align: center;
+}
+
+.interaction-item .interaction-icon {
+  text-align: left;
+  flex: 0.2;
+}
+
+.interaction-item .tracking-code {
+  flex: 0.6;
+  text-align: center;
+}
+
+.interaction-item .interaction-status {
+  flex: 0.2;
+  text-align: right;
 }
 
 /* Elementos de la interacción */
@@ -146,17 +172,13 @@ h1 {
   .admin-container {
     width: 85%;
   }
-
-  .interaction-item {
-    grid-template-columns: 1fr 1fr; /* Dos columnas en pantallas pequeñas */
+  .interaction-item > .interaction-type, 
+  .interaction-item > .interaction-status {
+    display: none;
   }
 
-  .interaction-type {
-    display: none; /* Oculta el tipo de interacción */
-  }
-
-  .interaction-status {
-    justify-self: end;
+  .interaction-item .tracking-code {
+    text-align: right;
   }
 }
 
