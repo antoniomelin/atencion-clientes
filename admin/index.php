@@ -27,7 +27,6 @@ requireAuth();
 
         <!-- Contenedor de tarjeta -->
         <div class="card">
-            <h2>Interacciones</h2>
             <ul class="interaction-list">
                 <li class="interaction-item pending">
                     <span class="interaction-icon">📞</span>

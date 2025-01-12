@@ -180,8 +180,7 @@ h1 {
   .admin-container {
     width: 85%;
   }
-  .interaction-item > .interaction-type, 
-  .interaction-item > .interaction-status {
+  .interaction-item > .interaction-type{
     display: none;
   }
 
