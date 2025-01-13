@@ -70,22 +70,13 @@ $mysqli->close();
                   <li class="interaction-item <?= strtolower($interaccion['estado']); ?>">
                       <span class="interaction-icon">
                           <?php
-                          // Define un icono para cada tipo
-                          switch ($interaccion['tipo']) {
-                              case 'Contacto':
-                                  echo '📞';
-                                  break;
-                              case 'Sugerencia':
-                                  echo '💡';
-                                  break;
-                              case 'Reclamo':
-                                  echo '⚠️';
-                                  break;
-                              default:
-                                  echo '❓';
-                                  break;
-                          }
-                          ?>
+                            switch ($interaccion['tipo']) {
+                                case 'contacto': echo '📞'; break;
+                                case 'sugerencia': echo '💡'; break;
+                                case 'reclamo': echo '⚠️'; break;
+                                default: echo '❓'; break;
+                            }
+                            ?>
                       </span>
                       <span class="interaction-type"><?= htmlspecialchars($interaccion['tipo']); ?></span>
                       <span class="tracking-code"><?= htmlspecialchars($interaccion['codigo_seguimiento']); ?></span>
