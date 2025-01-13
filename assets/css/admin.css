@@ -94,12 +94,6 @@ h1 {
   position: relative; /* Necesario para posicionar el contenido adicional */
 }
 
-.interaction-item.clicked {
-  flex-direction: column; /* Cambia a columna */
-  align-items: flex-start; /* Alinea elementos al inicio */
-  padding-bottom: 2em; /* Espacio para los detalles */
-}
-
 .interaction-item:hover {
   transform: scale(1.02);
 }
@@ -170,7 +164,6 @@ h1 {
 }
 
 .interaction-item.clicked {
-  flex-direction: column; /* Cambia a columna */
   align-items: flex-start; /* Alinea elementos al inicio */
   padding-bottom: 2em; /* Espacio para los detalles */
 }
