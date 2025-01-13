@@ -67,7 +67,7 @@ $mysqli->close();
         <div class="card">
             <ul class="interaction-list">
               <?php foreach ($interacciones as $interaccion): ?>
-                  <li class="interaction-item <?= strtolower($interaccion['estado']); ?>">
+                <li class="interaction-item <?= $estado_clases[$interaccion['estado']] ?? 'default'; ?>">
                       <span class="interaction-icon">
                           <?php
                             switch ($interaccion['tipo']) {

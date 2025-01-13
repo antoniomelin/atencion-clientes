@@ -93,6 +93,10 @@ h1 {
   flex-wrap: wrap; /* Permitir que los detalles ocupen una nueva fila */
 }
 
+.interaction-item.default {
+  background-color: #cccccc; /* Gris claro */
+}
+
 .interaction-item.clicked {
   background-color: rgba(255, 255, 255, 0.9); /* Fondo claro para expandido */
   transform: scale(1.02); /* Destaca el elemento expandido */
@@ -103,27 +107,27 @@ h1 {
 }
 
 /* Specific background colors for states */
-.interaction-item.pending {
+.interaction-item.pendiente {
   background-color: #f4c542;
 }
 
-.interaction-item.pending.clicked {
+.interaction-item.pendiente.clicked {
   background-color: #ffe08a; /* Lighter yellow */
 }
 
-.interaction-item.in-progress {
+.interaction-item.en_proceso {
   background-color: #4ba3c3;
 }
 
-.interaction-item.in-progress.clicked {
+.interaction-item.en_proceso.clicked {
   background-color: #8acde1; /* Lighter blue */
 }
 
-.interaction-item.resolved {
+.interaction-item.resuelto {
   background-color: #47b475;
 }
 
-.interaction-item.resolved.clicked {
+.interaction-item.resuelto.clicked {
   background-color: #9fd7b5; /* Lighter green */
 }
 
