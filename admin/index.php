@@ -75,7 +75,7 @@ $estado_iconos = [
         <div class="card">
             <ul class="interaction-list">
               <?php foreach ($interacciones as $interaccion): ?>
-                <li class="interaction-item <?= $interaccion['estado'] ?? 'default'; ?>">
+                <li class="interaction-item <?= $interaccion['tipo'] ?? 'default'; ?>">
                       <span class="interaction-icon">
                         <?= $estado_iconos[$interaccion['estado']] ?? '❓'; ?>
                       </span>
