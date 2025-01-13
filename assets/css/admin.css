@@ -171,6 +171,15 @@ h1 {
   text-align: center;
 }
 
+.details-content p {
+  margin: 0.5em 0;
+  text-align: left;
+}
+
+.details-content strong {
+  color: #333;
+}
+
 .interaction-item.clicked .details-content {
   display: block;
   margin-top: 1em; /* Separar detalles de los elementos principales */

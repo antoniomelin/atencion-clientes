@@ -23,8 +23,20 @@ $query = "
         i.tipo,
         i.codigo_seguimiento,
         s.estado,
-        i.mensaje
+        i.mensaje,
+        c.nombre,
+        c.apellidos,
+        c.rut,
+        c.empresa,
+        c.email,
+        c.telefono,
+        i.motivo,
+        i.lugar_compra,
+        i.boleta,
+        i.foto_boleta,
+        i.foto_producto
     FROM interacciones i
+    LEFT JOIN contactos c ON i.contacto_id = c.id
     LEFT JOIN seguimientos s ON i.id = s.interaccion_id
     GROUP BY i.id, s.estado
     ORDER BY i.fecha_creacion DESC
@@ -83,7 +95,27 @@ $estado_iconos = [
                       <span class="tracking-code"><?= htmlspecialchars($interaccion['codigo_seguimiento']); ?></span>
                       <span class="interaction-type"><?= htmlspecialchars($interaccion['tipo']); ?></span>
                       <div class="details-content" style="display: none;">
-                          <p><?= htmlspecialchars($interaccion['mensaje']); ?></p>
+                        <?php if ($interaccion['tipo'] === 'contacto'): ?>
+                            <p><strong>Nombre:</strong> <?= htmlspecialchars($interaccion['nombre']); ?></p>
+                            <p><strong>Apellidos:</strong> <?= htmlspecialchars($interaccion['apellidos']); ?></p>
+                            <p><strong>RUT:</strong> <?= htmlspecialchars($interaccion['rut']); ?></p>
+                            <p><strong>Empresa:</strong> <?= htmlspecialchars($interaccion['empresa'] ?? 'N/A'); ?></p>
+                            <p><strong>Email:</strong> <?= htmlspecialchars($interaccion['email']); ?></p>
+                            <p><strong>Teléfono:</strong> <?= htmlspecialchars($interaccion['telefono']); ?></p>
+                        <?php elseif ($interaccion['tipo'] === 'sugerencia'): ?>
+                            <p><strong>Motivo:</strong> <?= htmlspecialchars($interaccion['motivo']); ?></p>
+                            <p><strong>Mensaje:</strong> <?= htmlspecialchars($interaccion['mensaje']); ?></p>
+                        <?php elseif ($interaccion['tipo'] === 'reclamo'): ?>
+                            <p><strong>Lugar de compra:</strong> <?= htmlspecialchars($interaccion['lugar_compra']); ?></p>
+                            <p><strong>Número de boleta:</strong> <?= htmlspecialchars($interaccion['boleta']); ?></p>
+                            <p><strong>Mensaje:</strong> <?= htmlspecialchars($interaccion['mensaje']); ?></p>
+                            <?php if (!empty($interaccion['foto_boleta'])): ?>
+                                <p><strong>Foto Boleta:</strong> <a href="<?= htmlspecialchars($interaccion['foto_boleta']); ?>" target="_blank">Ver</a></p>
+                            <?php endif; ?>
+                            <?php if (!empty($interaccion['foto_producto'])): ?>
+                                <p><strong>Foto Producto:</strong> <a href="<?= htmlspecialchars($interaccion['foto_producto']); ?>" target="_blank">Ver</a></p>
+                            <?php endif; ?>
+                        <?php endif; ?>
                       </div>
                   </li>
               <?php endforeach; ?>
