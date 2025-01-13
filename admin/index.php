@@ -1,7 +1,34 @@
 <?php
 require_once '../includes/auth.php';
 requireAuth();
+require_once '../api/config.php'; // Archivo de configuración para la base de datos
+
+// Conexión a la base de datos
+$mysqli = new mysqli(
+    $config['host'],
+    $config['username'],
+    $config['password'],
+    $config['database'],
+    $config['port']
+);
+
+if ($mysqli->connect_error) {
+    die('Error al conectar con la base de datos: ' . $mysqli->connect_error);
+}
+
+// Consulta de interacciones
+$query = "SELECT tipo, codigo_seguimiento, estado, mensaje FROM interacciones";
+$result = $mysqli->query($query);
+
+$interacciones = [];
+if ($result) {
+    while ($row = $result->fetch_assoc()) {
+        $interacciones[] = $row;
+    }
+}
+$mysqli->close();
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -28,33 +55,35 @@ requireAuth();
         <!-- Contenedor de tarjeta -->
         <div class="card">
             <ul class="interaction-list">
-                <li class="interaction-item pending">
-                    <span class="interaction-icon">📞</span>
-                    <span class="interaction-type">Contacto</span>
-                    <span class="tracking-code">A98F46</span>
-                    <span class="interaction-status">Pendiente</span>
-                    <div class="details-content">
-                        <p>Detalles adicionales sobre esta interacción.</p>
-                    </div>
-                </li>
-                <li class="interaction-item in-progress">
-                    <span class="interaction-icon">💡</span>
-                    <span class="interaction-type">Sugerencia</span>
-                    <span class="tracking-code">783903</span>
-                    <span class="interaction-status">En Proceso</span>
-                    <div class="details-content">
-                        <p>Detalles adicionales sobre esta sugerencia.</p>
-                    </div>
-                </li>
-                <li class="interaction-item resolved">
-                    <span class="interaction-icon">⚠️</span>
-                    <span class="interaction-type">Reclamo</span>
-                    <span class="tracking-code">546A6F</span>
-                    <span class="interaction-status">Resuelto</span>
-                    <div class="details-content">
-                        <p>Detalles adicionales sobre este reclamo.</p>
-                    </div>
-                </li>
+              <?php foreach ($interacciones as $interaccion): ?>
+                  <li class="interaction-item <?= strtolower($interaccion['estado']); ?>">
+                      <span class="interaction-icon">
+                          <?php
+                          // Define un icono para cada tipo
+                          switch ($interaccion['tipo']) {
+                              case 'Contacto':
+                                  echo '📞';
+                                  break;
+                              case 'Sugerencia':
+                                  echo '💡';
+                                  break;
+                              case 'Reclamo':
+                                  echo '⚠️';
+                                  break;
+                              default:
+                                  echo '❓';
+                                  break;
+                          }
+                          ?>
+                      </span>
+                      <span class="interaction-type"><?= htmlspecialchars($interaccion['tipo']); ?></span>
+                      <span class="tracking-code"><?= htmlspecialchars($interaccion['codigo_seguimiento']); ?></span>
+                      <span class="interaction-status"><?= htmlspecialchars($interaccion['estado']); ?></span>
+                      <div class="details-content" style="display: none;">
+                          <p><?= htmlspecialchars($interaccion['mensaje']); ?></p>
+                      </div>
+                  </li>
+              <?php endforeach; ?>
             </ul>
         </div>
     </main>
