@@ -1,7 +1,8 @@
 <?php
 require_once '../includes/auth.php';
 requireAuth();
-require_once '../api/config.php'; // Archivo de configuración para la base de datos
+
+$config = require '../api/config.php';
 
 // Conexión a la base de datos
 $mysqli = new mysqli(
