@@ -108,29 +108,31 @@ h1 {
   transform: scale(1.02);
 }
 
-/* Specific background colors for states */
-.interaction-item.pendiente {
-  background-color: #f4c542;
+/* Colores para contacto (azul pastel) */
+.interaction-item.contacto {
+  background-color: #a3c9f7; /* Azul pastel */
 }
 
-.interaction-item.pendiente.clicked {
-  background-color: #ffe08a; /* Lighter yellow */
+.interaction-item.contacto.clicked {
+  background-color: #d6e8fc; /* Azul más tenue */
 }
 
-.interaction-item.en_proceso {
-  background-color: #4ba3c3;
+/* Colores para sugerencia (amarillo pastel) */
+.interaction-item.sugerencia {
+  background-color: #f7e8a3; /* Amarillo pastel */
 }
 
-.interaction-item.en_proceso.clicked {
-  background-color: #8acde1; /* Lighter blue */
+.interaction-item.sugerencia.clicked {
+  background-color: #faf2d6; /* Amarillo más tenue */
 }
 
-.interaction-item.resuelto {
-  background-color: #47b475;
+/* Colores para reclamo (rojo pastel) */
+.interaction-item.reclamo {
+  background-color: #f7a3a3; /* Rojo pastel */
 }
 
-.interaction-item.resuelto.clicked {
-  background-color: #9fd7b5; /* Lighter green */
+.interaction-item.reclamo.clicked {
+  background-color: #fbd6d6; /* Rojo más tenue */
 }
 
 /* Flex layout for alignment */

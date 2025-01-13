@@ -40,6 +40,14 @@ if ($result) {
 $mysqli->close();
 ?>
 
+<?php
+// Iconos para los estados
+$estado_iconos = [
+    'pendiente' => '❗', // Exclamación
+    'en_proceso' => '⏳', // Reloj
+    'resuelto' => '✔️', // Tick
+];
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -69,14 +77,7 @@ $mysqli->close();
               <?php foreach ($interacciones as $interaccion): ?>
                 <li class="interaction-item <?= $interaccion['estado'] ?? 'default'; ?>">
                       <span class="interaction-icon">
-                          <?php
-                            switch ($interaccion['tipo']) {
-                                case 'contacto': echo '📞'; break;
-                                case 'sugerencia': echo '💡'; break;
-                                case 'reclamo': echo '⚠️'; break;
-                                default: echo '❓'; break;
-                            }
-                            ?>
+                        <?= $estado_iconos[$interaccion['estado']] ?? '❓'; ?>
                       </span>
                       <span class="interaction-type"><?= htmlspecialchars($interaccion['tipo']); ?></span>
                       <span class="tracking-code"><?= htmlspecialchars($interaccion['codigo_seguimiento']); ?></span>
