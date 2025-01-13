@@ -79,9 +79,9 @@ $estado_iconos = [
                       <span class="interaction-icon">
                         <?= $estado_iconos[$interaccion['estado']] ?? '❓'; ?>
                       </span>
-                      <span class="interaction-type"><?= htmlspecialchars($interaccion['tipo']); ?></span>
-                      <span class="tracking-code"><?= htmlspecialchars($interaccion['codigo_seguimiento']); ?></span>
                       <span class="interaction-status"><?= htmlspecialchars($interaccion['estado']); ?></span>
+                      <span class="tracking-code"><?= htmlspecialchars($interaccion['codigo_seguimiento']); ?></span>
+                      <span class="interaction-type"><?= htmlspecialchars($interaccion['tipo']); ?></span>
                       <div class="details-content" style="display: none;">
                           <p><?= htmlspecialchars($interaccion['mensaje']); ?></p>
                       </div>

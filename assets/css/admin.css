@@ -110,20 +110,20 @@ h1 {
 
 /* Colores para contacto (azul pastel) */
 .interaction-item.contacto {
-  background-color: #a3c9f7; /* Azul pastel */
+  background-color: #91bef5; /* Azul pastel */
 }
 
 .interaction-item.contacto.clicked {
-  background-color: #d6e8fc; /* Azul más tenue */
+  background-color: #b6d4f7; /* Azul más tenue */
 }
 
 /* Colores para sugerencia (amarillo pastel) */
 .interaction-item.sugerencia {
-  background-color: #f7e8a3; /* Amarillo pastel */
+  background-color: #f8e697; /* Amarillo pastel */
 }
 
 .interaction-item.sugerencia.clicked {
-  background-color: #faf2d6; /* Amarillo más tenue */
+  background-color: #faeec1; /* Amarillo más tenue */
 }
 
 /* Colores para reclamo (rojo pastel) */
