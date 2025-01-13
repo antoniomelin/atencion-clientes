@@ -55,7 +55,7 @@ $mysqli->close();
 <?php
 // Iconos para los estados
 $estado_iconos = [
-    'pendiente' => '❗', // Exclamación
+    'pendiente' => '', // Exclamación
     'en_proceso' => '⏳', // Reloj
     'resuelto' => '✔️', // Tick
 ];
