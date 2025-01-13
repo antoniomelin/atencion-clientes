@@ -18,7 +18,17 @@ if ($mysqli->connect_error) {
 }
 
 // Consulta de interacciones
-$query = "SELECT tipo, codigo_seguimiento, estado, mensaje FROM interacciones";
+$query = "
+    SELECT 
+        i.tipo,
+        i.codigo_seguimiento,
+        s.estado,
+        i.mensaje
+    FROM interacciones i
+    LEFT JOIN seguimientos s ON i.id = s.interaccion_id
+    GROUP BY i.id, s.estado
+    ORDER BY i.fecha_creacion DESC
+";
 $result = $mysqli->query($query);
 
 $interacciones = [];
