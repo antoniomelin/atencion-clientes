@@ -80,7 +80,6 @@ h1 {
 }
 
 /* General styling for interaction items */
-/* Elementos principales en una sola línea */
 .interaction-item {
   display: flex;
   justify-content: space-between;
@@ -91,7 +90,12 @@ h1 {
   color: white;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
-  position: relative; /* Necesario para posicionar el contenido adicional */
+  flex-wrap: wrap; /* Permitir que los detalles ocupen una nueva fila */
+}
+
+.interaction-item.clicked {
+  background-color: rgba(255, 255, 255, 0.9); /* Fondo claro para expandido */
+  transform: scale(1.02); /* Destaca el elemento expandido */
 }
 
 .interaction-item:hover {
@@ -161,6 +165,8 @@ h1 {
 
 .interaction-item.clicked .details-content {
   display: block;
+  margin-top: 1em; /* Separar detalles de los elementos principales */
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .interaction-item.clicked {
