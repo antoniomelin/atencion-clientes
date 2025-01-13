@@ -1,8 +1,12 @@
 /* Header transparente con logo centrado */
 .header {
-  position: relative;
+  position: sticky;
+  top: 0;
+  background: rgba(255, 255, 255, 0.85);
+  z-index: 10;
+  width: 100%;
   text-align: center;
-  margin-bottom: 2em;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Agrega una sombra ligera */
 }
 
 .logo {
@@ -19,11 +23,12 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
   margin: 0;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
     url('../images/fondo_frio.png') no-repeat center center fixed;
   background-size: cover;
+  overflow-y: auto;
 }
 
 /* Contenedor principal del admin */
@@ -36,6 +41,7 @@ body {
   max-width: 800px;
   text-align: center;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  min-height: auto;
 }
 
 h1 {
