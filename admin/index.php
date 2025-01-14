@@ -93,7 +93,7 @@ $estado_iconos = [
                 <label for="end-date">Hasta:</label>
                 <input type="date" id="end-date">
             </div>
-            <a href="logout.php" class="logout-link">Cerrar Sesión</a>
+            <a href="logout.php" class="logout-link" title="Cerrar Sesión">🔓</a>
         </div>
 
         <!-- Contenedor de tarjeta -->
