@@ -1,5 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
   const interactionItems = document.querySelectorAll(".interaction-item");
+  const filterButtons    = document.querySelectorAll(".filter-btn");
+  const startDateInput   = document.getElementById("start-date");
+  const endDateInput     = document.getElementById("end-date");
 
   interactionItems.forEach(item => {
     item.addEventListener("click", (event) => {
@@ -39,4 +42,39 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
+
+  // Filtrar por estado
+  filterButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const filter = button.getAttribute("data-filter");
+      interactionItems.forEach((item) => {
+        if (item.classList.contains(filter)) {
+          item.style.display = "flex";
+        } else {
+          item.style.display = "none";
+        }
+      });
+    });
+  });
+
+  // Filtrar por rango de fechas
+  [startDateInput, endDateInput].forEach((input) => {
+    input.addEventListener("change", () => {
+      const startDate = new Date(startDateInput.value);
+      const endDate = new Date(endDateInput.value);
+
+      interactionItems.forEach((item) => {
+        const itemDate = new Date(item.getAttribute("data-date")); // Asegúrate de que los datos tengan un atributo `data-date`
+        if (
+          (!startDate || itemDate >= startDate) &&
+          (!endDate || itemDate <= endDate)
+        ) {
+          item.style.display = "flex";
+        } else {
+          item.style.display = "none";
+        }
+      });
+    });
+  });
+  
 });

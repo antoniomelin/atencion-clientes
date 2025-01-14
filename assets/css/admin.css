@@ -202,6 +202,68 @@ h1 {
   text-align: center;
 }
 
+/* Contenedor de menú */
+.menu-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 1em;
+}
+
+/* Filtros */
+.filters {
+  display: flex;
+  gap: 0.5em;
+}
+
+.filter-btn {
+  padding: 0.5em 1em;
+  background-color: #4ba3c3;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.filter-btn:hover {
+  background-color: #357a99;
+}
+
+/* Selector de rango de fechas */
+.date-picker {
+  display: flex;
+  gap: 0.5em;
+  align-items: center;
+}
+
+.date-picker label {
+  font-size: 0.9em;
+  color: #333;
+}
+
+.date-picker input[type="date"] {
+  padding: 0.4em;
+  font-size: 0.9em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Cerrar sesión */
+.logout-link {
+  color: #0c3273;
+  text-decoration: none;
+  font-size: 1em;
+  margin-left: auto;
+}
+
+.logout-link:hover {
+  text-decoration: underline;
+}
+
 /* Responsiveness */
 @media (max-width: 768px) {
   .admin-container {
