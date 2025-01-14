@@ -242,7 +242,7 @@ h1 {
 .date-picker {
   display: flex;
   gap: 0.5em;
-  align-items: center;
+  align-items: right;
   flex: 2;
   justify-content: center;
 }
@@ -261,7 +261,7 @@ h1 {
 } */
 
 .calendar-button {
-  background-color: #4ba3c3; /* Azul */
+  background-color: #58aece; /* Azul */
   color: white;
   border: none;
   border-radius: 5px;
@@ -272,7 +272,7 @@ h1 {
 }
 
 .calendar-button:hover {
-  background-color: #357a99; /* Azul más oscuro */
+  background-color: #3b86a9; /* Azul más oscuro */
 }
 
 /* Cerrar sesión */
@@ -285,7 +285,7 @@ h1 {
 }
 /* Botón general de iconos */
 .icon-button {
-  background-color: #e74c3c; /* Rojo */
+  background-color: #ef6252; /* Rojo */
   color: white;
   border: none;
   border-radius: 5px;
@@ -301,7 +301,7 @@ h1 {
 
 /* Hover para el botón de icono */
 .icon-button:hover {
-  background-color: #c0392b; /* Rojo más oscuro */
+  background-color: #d74535; /* Rojo más oscuro */
 }
 
 /* Responsiveness */
