@@ -85,11 +85,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
   stateFilter.addEventListener("change", function () {
       const selectedValue = stateFilter.value;
-
       // Filtrar las interacciones según el valor seleccionado
       const interactionItems = document.querySelectorAll(".interaction-item");
 
       interactionItems.forEach(item => {
+        console.log('Evaluando:', item, 'Clase:', selectedValue);
           if (selectedValue === "todos" || item.classList.contains(selectedValue)) {
               item.style.display = "flex"; // Mostrar el ítem
           } else {
