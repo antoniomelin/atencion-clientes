@@ -86,15 +86,18 @@ $estado_iconos = [
     <main class="admin-container">
         <h1>Panel de Administración</h1>
         <div class="menu-container">
-            <div class="filters">
-                <button class="filter-btn" data-filter="pendiente">Pendientes</button>
-                <button class="filter-btn" data-filter="en_proceso">En Proceso</button>
-                <button class="filter-btn" data-filter="resuelto">Resueltos</button>
-            </div>
-            <div class="date-picker">
-              <button id="date-picker-button" class="calendar-button">📅</button>
-            </div>
-            <a href="logout.php" class="icon-button" id="logout-button" title="Cerrar Sesión">🔒</a>
+          <div class="filters">
+              <select id="state-filter" class="state-select">
+                  <option value="todos">Todos</option>
+                  <option value="pendiente">Pendientes</option>
+                  <option value="en_proceso">En Proceso</option>
+                  <option value="resuelto">Resueltos</option>
+              </select>
+          </div>
+          <div class="date-picker">
+              <button id="date-picker-button" class="calendar-button" title="Seleccionar Fecha">📅</button>
+          </div>
+          <a href="logout.php" class="icon-button" id="logout-button" title="Cerrar Sesión">🔒</a>
         </div>
 
         <!-- Contenedor de tarjeta -->
