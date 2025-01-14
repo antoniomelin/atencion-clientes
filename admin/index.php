@@ -103,9 +103,21 @@ $estado_iconos = [
                             <p><strong>Email:</strong> <?= htmlspecialchars($interaccion['email']); ?></p>
                             <p><strong>Teléfono:</strong> <?= htmlspecialchars($interaccion['telefono']); ?></p>
                         <?php elseif ($interaccion['tipo'] === 'sugerencia'): ?>
+                            <p><strong>Nombre:</strong> <?= htmlspecialchars($interaccion['nombre']); ?></p>
+                            <p><strong>Apellidos:</strong> <?= htmlspecialchars($interaccion['apellidos']); ?></p>
+                            <p><strong>RUT:</strong> <?= htmlspecialchars($interaccion['rut']); ?></p>
+                            <p><strong>Empresa:</strong> <?= htmlspecialchars($interaccion['empresa'] ?? 'N/A'); ?></p>
+                            <p><strong>Email:</strong> <?= htmlspecialchars($interaccion['email']); ?></p>
+                            <p><strong>Teléfono:</strong> <?= htmlspecialchars($interaccion['telefono']); ?></p>
                             <p><strong>Motivo:</strong> <?= htmlspecialchars($interaccion['motivo']); ?></p>
                             <p><strong>Mensaje:</strong> <?= htmlspecialchars($interaccion['mensaje']); ?></p>
                         <?php elseif ($interaccion['tipo'] === 'reclamo'): ?>
+                            <p><strong>Nombre:</strong> <?= htmlspecialchars($interaccion['nombre']); ?></p>
+                            <p><strong>Apellidos:</strong> <?= htmlspecialchars($interaccion['apellidos']); ?></p>
+                            <p><strong>RUT:</strong> <?= htmlspecialchars($interaccion['rut']); ?></p>
+                            <p><strong>Empresa:</strong> <?= htmlspecialchars($interaccion['empresa'] ?? 'N/A'); ?></p>
+                            <p><strong>Email:</strong> <?= htmlspecialchars($interaccion['email']); ?></p>
+                            <p><strong>Teléfono:</strong> <?= htmlspecialchars($interaccion['telefono']); ?></p>
                             <p><strong>Lugar de compra:</strong> <?= htmlspecialchars($interaccion['lugar_compra']); ?></p>
                             <p><strong>Número de boleta:</strong> <?= htmlspecialchars($interaccion['boleta']); ?></p>
                             <p><strong>Mensaje:</strong> <?= htmlspecialchars($interaccion['mensaje']); ?></p>
