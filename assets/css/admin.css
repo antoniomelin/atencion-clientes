@@ -269,10 +269,6 @@ h1 {
   flex-shrink: 0;
 }
 
-.logout-link:hover {
-  text-decoration: underline;
-}
-
 /* Responsiveness */
 @media (max-width: 768px) {
   .admin-container {

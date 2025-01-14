@@ -69,6 +69,10 @@ $estado_iconos = [
     <title>Panel de Administración</title>
     <link rel="stylesheet" href="../assets/css/admin.css">
     <script defer src="../assets/js/admin.js"></script>
+    <!-- Flatpickr CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <!-- Flatpickr JS -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 </head>
 <body>
     <!-- Header con logo -->
@@ -88,10 +92,7 @@ $estado_iconos = [
                 <button class="filter-btn" data-filter="resuelto">Resueltos</button>
             </div>
             <div class="date-picker">
-                <label for="start-date">Desde:</label>
-                <input type="date" id="start-date">
-                <label for="end-date">Hasta:</label>
-                <input type="date" id="end-date">
+              <input type="text" id="date-range-picker" placeholder="Seleccionar rango de fechas" />
             </div>
             <a href="logout.php" class="logout-link" title="Cerrar Sesión">🔓</a>
         </div>

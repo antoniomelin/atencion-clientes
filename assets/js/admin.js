@@ -56,25 +56,17 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   });
-
-  // Filtrar por rango de fechas
-  [startDateInput, endDateInput].forEach((input) => {
-    input.addEventListener("change", () => {
-      const startDate = new Date(startDateInput.value);
-      const endDate = new Date(endDateInput.value);
-
-      interactionItems.forEach((item) => {
-        const itemDate = new Date(item.getAttribute("data-date")); // Asegúrate de que los datos tengan un atributo `data-date`
-        if (
-          (!startDate || itemDate >= startDate) &&
-          (!endDate || itemDate <= endDate)
-        ) {
-          item.style.display = "flex";
-        } else {
-          item.style.display = "none";
-        }
-      });
-    });
-  });
   
+});
+// Inicializar Flatpickr para el rango de fechas
+document.addEventListener("DOMContentLoaded", function () {
+  flatpickr("#date-range-picker", {
+    mode: "range", // Permite seleccionar un rango de fechas
+    dateFormat: "Y-m-d", // Formato de las fechas (YYYY-MM-DD)
+    locale: "es", // Cambia el idioma a español
+    defaultDate: null, // Puedes especificar valores predeterminados aquí, si es necesario
+    onChange: function(selectedDates, dateStr, instance) {
+      console.log("Rango de fechas seleccionado:", dateStr); // Muestra las fechas seleccionadas
+    },
+  });
 });
