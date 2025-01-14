@@ -92,7 +92,7 @@ $estado_iconos = [
                 <button class="filter-btn" data-filter="resuelto">Resueltos</button>
             </div>
             <div class="date-picker">
-              <input type="text" id="date-range-picker" placeholder="Seleccionar rango de fechas" />
+              <button id="date-picker-button" class="calendar-button">📅</button>
             </div>
             <a href="logout.php" class="logout-link" title="Cerrar Sesión">🔓</a>
         </div>

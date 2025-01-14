@@ -58,15 +58,24 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   
 });
-// Inicializar Flatpickr para el rango de fechas
+// Inicializar Flatpickr para el rango de fechas al hacer clic en el ícono
 document.addEventListener("DOMContentLoaded", function () {
-  flatpickr("#date-range-picker", {
-    mode: "range", // Permite seleccionar un rango de fechas
+  const datePickerButton = document.getElementById("date-picker-button");
+
+  // Configurar Flatpickr
+  const flatpickrInstance = flatpickr(datePickerButton, {
+    mode: "range", // Selección de rango de fechas
     dateFormat: "Y-m-d", // Formato de las fechas (YYYY-MM-DD)
-    locale: "es", // Cambia el idioma a español
-    defaultDate: null, // Puedes especificar valores predeterminados aquí, si es necesario
-    onChange: function(selectedDates, dateStr, instance) {
-      console.log("Rango de fechas seleccionado:", dateStr); // Muestra las fechas seleccionadas
+    locale: "es", // Idioma español
+    clickOpens: false, // Evita que se abra automáticamente
+    onChange: function (selectedDates, dateStr) {
+      console.log("Fechas seleccionadas:", dateStr);
+      // Agrega aquí lógica para manejar las fechas seleccionadas
     },
+  });
+
+  // Mostrar el picker al hacer clic en el botón
+  datePickerButton.addEventListener("click", function () {
+    flatpickrInstance.open();
   });
 });
