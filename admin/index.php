@@ -94,7 +94,7 @@ $estado_iconos = [
             <div class="date-picker">
               <button id="date-picker-button" class="calendar-button">📅</button>
             </div>
-            <a href="logout.php" class="logout-link" title="Cerrar Sesión">🔓</a>
+            <a href="logout.php" class="icon-button" id="logout-button" title="Cerrar Sesión">🔒</a>
         </div>
 
         <!-- Contenedor de tarjeta -->

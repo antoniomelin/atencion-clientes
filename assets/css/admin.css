@@ -261,6 +261,7 @@ h1 {
 } */
 
 .calendar-button {
+  background-color: #4ba3c3; /* Azul */
   color: white;
   border: none;
   border-radius: 5px;
@@ -281,6 +282,26 @@ h1 {
   font-size: 1em;
   margin-left: auto;
   flex-shrink: 0;
+}
+/* Botón general de iconos */
+.icon-button {
+  background-color: #e74c3c; /* Rojo */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5em 1em;
+  font-size: 1.2em; /* Tamaño del emoji */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none; /* Evita el subrayado */
+  transition: background-color 0.3s ease;
+}
+
+/* Hover para el botón de icono */
+.icon-button:hover {
+  background-color: #c0392b; /* Rojo más oscuro */
 }
 
 /* Responsiveness */
