@@ -79,3 +79,22 @@ document.addEventListener("DOMContentLoaded", function () {
     flatpickrInstance.open();
   });
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  const stateFilter = document.getElementById("state-filter");
+
+  stateFilter.addEventListener("change", function () {
+      const selectedValue = stateFilter.value;
+
+      // Filtrar las interacciones según el valor seleccionado
+      const interactionItems = document.querySelectorAll(".interaction-item");
+
+      interactionItems.forEach(item => {
+          if (selectedValue === "todos" || item.classList.contains(selectedValue)) {
+              item.style.display = "flex"; // Mostrar el ítem
+          } else {
+              item.style.display = "none"; // Ocultar el ítem
+          }
+      });
+  });
+});
