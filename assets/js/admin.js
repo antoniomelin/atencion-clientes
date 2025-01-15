@@ -115,24 +115,29 @@ document.addEventListener("DOMContentLoaded", () => {
       console.log(`Procesando interacción con ID: ${interactionId}`);
       
       // Ejemplo de llamada AJAX
-      fetch(`../api/procesar.php`, {
+      ffetch(`/api/procesar.php`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ id: interactionId }),
       })
-        .then(response => response.json())
-        .then(data => {
+        .then((response) => {
+          console.log("Respuesta bruta del servidor:", response);
+          return response.json();
+        })
+        .then((data) => {
+          console.log("Datos procesados:", data);
           if (data.success) {
             alert("Interacción procesada con éxito");
-            button.disabled = true; // Deshabilitar botón tras procesar
+            button.disabled = true;
             button.textContent = "Procesado";
           } else {
-            alert("Error al procesar la interacción");
+            alert(`Error: ${data.error}`);
           }
         })
-        .catch(error => console.error("Error:", error));
+        .catch((error) => console.error("Error en fetch:", error));
+      
     });
   });
 });
