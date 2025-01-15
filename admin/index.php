@@ -140,7 +140,9 @@ $estado_iconos = [
                             <p><strong>Número de boleta:</strong> <?= htmlspecialchars($interaccion['boleta']); ?></p>
                             <p><strong>Mensaje:</strong> <?= htmlspecialchars($interaccion['mensaje']); ?></p>
                             <?php if (!empty($interaccion['foto_boleta'])): ?>
-                                <p><strong>Foto Boleta:</strong> <a href="<?= htmlspecialchars($interaccion['foto_boleta']); ?>" target="_blank">Ver</a></p>
+                              <p><strong>Foto Boleta:</strong> 
+                                  <a href="<?= htmlspecialchars($interaccion['foto_boleta']); ?>" target="_blank" title="Ver foto de boleta">📝</a>
+                              </p>
                             <?php endif; ?>
                             <?php if (!empty($interaccion['foto_producto'])): ?>
                                 <p><strong>Foto Producto:</strong> <a href="<?= htmlspecialchars($interaccion['foto_producto']); ?>" target="_blank">Ver</a></p>
