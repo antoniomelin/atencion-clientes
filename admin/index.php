@@ -146,6 +146,8 @@ $estado_iconos = [
                                 <p><strong>Foto Producto:</strong> <a href="<?= htmlspecialchars($interaccion['foto_producto']); ?>" target="_blank">Ver</a></p>
                             <?php endif; ?>
                         <?php endif; ?>
+                        <!-- Botón de procesar -->
+                        <button class="process-button" data-id="<?= htmlspecialchars($interaccion['codigo_seguimiento']); ?>">Procesar</button>
                       </div>
                   </li>
               <?php endforeach; ?>
