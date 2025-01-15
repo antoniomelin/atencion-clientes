@@ -120,24 +120,25 @@ document.addEventListener("DOMContentLoaded", () => {
         .then((response) => response.json())
         .then((data) => {
           if (data.success) {
-            const detailsContent = button.parentElement;
-            button.remove(); // Eliminar el botón "En Proceso"
+            window.location.reload();
+            // const detailsContent = button.parentElement;
+            // button.remove(); // Eliminar el botón "En Proceso"
 
-            // Agregar los botones "Responder" y "Resolver"
-            const respondButton = document.createElement("button");
-            respondButton.classList.add("respond-button");
-            respondButton.setAttribute("data-id", interactionId);
-            respondButton.textContent = "✉️ Responder";
-            detailsContent.appendChild(respondButton);
+            // // Agregar los botones "Responder" y "Resolver"
+            // const respondButton = document.createElement("button");
+            // respondButton.classList.add("respond-button");
+            // respondButton.setAttribute("data-id", interactionId);
+            // respondButton.textContent = "✉️ Responder";
+            // detailsContent.appendChild(respondButton);
 
-            const resolveButton = document.createElement("button");
-            resolveButton.classList.add("resolve-button");
-            resolveButton.setAttribute("data-id", interactionId);
-            resolveButton.textContent = "✅ Resolver";
-            detailsContent.appendChild(resolveButton);
+            // const resolveButton = document.createElement("button");
+            // resolveButton.classList.add("resolve-button");
+            // resolveButton.setAttribute("data-id", interactionId);
+            // resolveButton.textContent = "✅ Resolver";
+            // detailsContent.appendChild(resolveButton);
 
-            // Agregar eventos a los nuevos botones
-            addRespondResolveEvents();
+            // // Agregar eventos a los nuevos botones
+            // addRespondResolveEvents();
           } else {
             alert(`Error: ${data.error}`);
           }
