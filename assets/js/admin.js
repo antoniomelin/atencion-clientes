@@ -115,7 +115,7 @@ document.addEventListener("DOMContentLoaded", () => {
       console.log(`Procesando interacción con ID: ${interactionId}`);
       
       // Ejemplo de llamada AJAX
-      ffetch(`/api/procesar.php`, {
+      fetch(`/api/procesar.php`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
