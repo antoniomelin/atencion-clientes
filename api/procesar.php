@@ -38,7 +38,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $interaccionId = $interaccion['id'];
 
     // Actualizar el estado en la tabla seguimientos
-    $stmt = $mysqli->prepare("UPDATE seguimientos SET estado = 'en_proceso' WHERE interaccion_id = ?");
+    $action = $input['action'] ?? null;
+
+    if ($action === 'en_proceso') {
+        $stmt = $mysqli->prepare("UPDATE seguimientos SET estado = 'en_proceso' WHERE interaccion_id = ?");
+    } elseif ($action === 'resuelto') {
+        $stmt = $mysqli->prepare("UPDATE seguimientos SET estado = 'resuelto' WHERE interaccion_id = ?");
+    } else {
+        echo json_encode(['success' => false, 'error' => 'Acción no válida']);
+        exit;
+    }
+
     if (!$stmt) {
         echo json_encode(['success' => false, 'error' => 'Error en la consulta SQL: ' . $mysqli->error]);
         exit;

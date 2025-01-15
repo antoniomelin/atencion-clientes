@@ -104,44 +104,86 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Obtener todos los botones de procesar
   const processButtons = document.querySelectorAll(".process-button");
 
   processButtons.forEach((button) => {
     button.addEventListener("click", () => {
       const interactionId = button.getAttribute("data-id");
 
-      // Acción al hacer clic en el botón
-      console.log(`Procesando interacción con ID: ${interactionId}`);
-      
-      // Ejemplo de llamada AJAX
       fetch(`/api/procesar.php`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ id: interactionId }),
+        body: JSON.stringify({ id: interactionId, action: "en_proceso" }),
       })
-        .then((response) => response.text()) // Leer como texto primero
-        .then((text) => {
-          try {
-            const data = JSON.parse(text); // Intentar convertir a JSON
-            console.log("Datos procesados:", data);
-            if (data.success) {
-              alert("Interacción procesada con éxito");
-              button.disabled = true;
-              button.textContent = "Procesado";
-            } else {
-              alert(`Error: ${data.error}`);
-            }
-          } catch (e) {
-            console.error("Respuesta no válida (no es JSON):", text);
-            alert("Error inesperado en el servidor");
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.success) {
+            const detailsContent = button.parentElement;
+            button.remove(); // Eliminar el botón "En Proceso"
+
+            // Agregar los botones "Responder" y "Resolver"
+            const respondButton = document.createElement("button");
+            respondButton.classList.add("respond-button");
+            respondButton.setAttribute("data-id", interactionId);
+            respondButton.textContent = "✉️ Responder";
+            detailsContent.appendChild(respondButton);
+
+            const resolveButton = document.createElement("button");
+            resolveButton.classList.add("resolve-button");
+            resolveButton.setAttribute("data-id", interactionId);
+            resolveButton.textContent = "✅ Resolver";
+            detailsContent.appendChild(resolveButton);
+
+            // Agregar eventos a los nuevos botones
+            addRespondResolveEvents();
+          } else {
+            alert(`Error: ${data.error}`);
           }
         })
         .catch((error) => console.error("Error en fetch:", error));
-      
-      
     });
   });
+
+  // Agregar eventos a los botones "Responder" y "Resolver"
+  function addRespondResolveEvents() {
+    const respondButtons = document.querySelectorAll(".respond-button");
+    const resolveButtons = document.querySelectorAll(".resolve-button");
+
+    respondButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const interactionId = button.getAttribute("data-id");
+        alert(`Enviar correo para la interacción ${interactionId}`);
+        // Aquí puedes implementar la lógica para enviar un correo
+      });
+    });
+
+    resolveButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const interactionId = button.getAttribute("data-id");
+
+        fetch(`/api/procesar.php`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ id: interactionId, action: "resuelto" }),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.success) {
+              alert(`Interacción ${interactionId} marcada como resuelta.`);
+              button.parentElement.parentElement.remove(); // Eliminar la interacción del DOM
+            } else {
+              alert(`Error: ${data.error}`);
+            }
+          })
+          .catch((error) => console.error("Error en fetch:", error));
+      });
+    });
+  }
+
+  // Inicializar eventos en los botones existentes
+  addRespondResolveEvents();
 });

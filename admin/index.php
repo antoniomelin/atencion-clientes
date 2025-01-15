@@ -146,8 +146,23 @@ $estado_iconos = [
                                 <p><strong>Foto Producto:</strong> <a href="<?= htmlspecialchars($interaccion['foto_producto']); ?>" target="_blank">Ver</a></p>
                             <?php endif; ?>
                         <?php endif; ?>
-                        <!-- Botón de procesar -->
-                        <button class="process-button" data-id="<?= htmlspecialchars($interaccion['codigo_seguimiento']); ?>">Procesar</button>
+
+                        <!-- Botón "En Proceso" -->
+                        <?php if ($interaccion['estado'] === 'pendiente'): ?>
+                            <button class="process-button en-proceso" data-id="<?= htmlspecialchars($interaccion['codigo_seguimiento']); ?>">
+                                En Proceso
+                            </button>
+                        <?php endif; ?>
+
+                        <!-- Botón "Responder" y "Resolver" -->
+                        <?php if ($interaccion['estado'] === 'en_proceso'): ?>
+                            <button class="respond-button" data-id="<?= htmlspecialchars($interaccion['codigo_seguimiento']); ?>">
+                                ✉️ Responder
+                            </button>
+                            <button class="resolve-button" data-id="<?= htmlspecialchars($interaccion['codigo_seguimiento']); ?>">
+                                ✅ Resolver
+                            </button>
+                        <?php endif; ?>
                       </div>
                   </li>
               <?php endforeach; ?>

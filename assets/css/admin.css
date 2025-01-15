@@ -336,6 +336,36 @@ h1 {
   transform: scale(0.98); /* Pequeño efecto al hacer clic */
 }
 
+.respond-button {
+  background-color: #007bff; /* Azul */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5em 1em;
+  cursor: pointer;
+  margin-right: 5px;
+  transition: background-color 0.3s;
+}
+
+.respond-button:hover {
+  background-color: #0056b3;
+}
+
+.resolve-button {
+  background-color: #28a745; /* Verde */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5em 1em;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.resolve-button:hover {
+  background-color: #218838;
+}
+
+
 /* Responsiveness */
 @media (max-width: 768px) {
   .admin-container {
