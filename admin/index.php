@@ -110,7 +110,7 @@ $estado_iconos = [
                         <?= $estado_iconos[$interaccion['estado']] ?? '❓'; ?>
                       </span>
                       <span class="interaction-status"><?= htmlspecialchars($interaccion['estado']); ?></span>
-                      <span class="tracking-code"><?= htmlspecialchars($interaccion['codigo_seguimiento']); ?></span>
+                      <span class="tracking-code"><?= htmlspecialchars($interaccion['codigo_seguimiento']); ?>-<?= htmlspecialchars($interaccion['nombre']); ?></span>
                       <span class="interaction-type"><?= htmlspecialchars($interaccion['tipo']); ?></span>
                       <div class="details-content" style="display: none;">
                         <?php if ($interaccion['tipo'] === 'contacto'): ?>
