@@ -122,21 +122,25 @@ document.addEventListener("DOMContentLoaded", () => {
         },
         body: JSON.stringify({ id: interactionId }),
       })
-        .then((response) => {
-          console.log("Respuesta bruta del servidor:", response);
-          return response.json();
-        })
-        .then((data) => {
-          console.log("Datos procesados:", data);
-          if (data.success) {
-            alert("Interacción procesada con éxito");
-            button.disabled = true;
-            button.textContent = "Procesado";
-          } else {
-            alert(`Error: ${data.error}`);
+        .then((response) => response.text()) // Leer como texto primero
+        .then((text) => {
+          try {
+            const data = JSON.parse(text); // Intentar convertir a JSON
+            console.log("Datos procesados:", data);
+            if (data.success) {
+              alert("Interacción procesada con éxito");
+              button.disabled = true;
+              button.textContent = "Procesado";
+            } else {
+              alert(`Error: ${data.error}`);
+            }
+          } catch (e) {
+            console.error("Respuesta no válida (no es JSON):", text);
+            alert("Error inesperado en el servidor");
           }
         })
         .catch((error) => console.error("Error en fetch:", error));
+      
       
     });
   });
