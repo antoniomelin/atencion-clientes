@@ -1,4 +1,6 @@
 <?php
+header('Content-Type: application/json'); // Asegúrate de enviar JSON como respuesta
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $input = json_decode(file_get_contents('php://input'), true);
     $id = $input['id'] ?? null;
@@ -21,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             exit;
         }
 
-        $stmt = $mysqli->prepare("UPDATE interacciones SET estado = 'en_procesado' WHERE codigo_seguimiento = ?");
+        $stmt = $mysqli->prepare("UPDATE interacciones SET estado = 'en_proceso' WHERE codigo_seguimiento = ?");
         $stmt->bind_param('s', $id);
         $stmt->execute();
 
