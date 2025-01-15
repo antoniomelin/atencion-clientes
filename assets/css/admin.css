@@ -316,6 +316,26 @@ h1 {
   background-color: #b9b6b6; /* Rojo más oscuro */
 }
 
+.process-button {
+  background-color: #4caf50; /* Verde */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5em 1em;
+  font-size: 0.9em;
+  cursor: pointer;
+  margin-top: 1em;
+  transition: background-color 0.3s ease;
+}
+
+.process-button:hover {
+  background-color: #45a049; /* Verde más oscuro */
+}
+
+.process-button:active {
+  transform: scale(0.98); /* Pequeño efecto al hacer clic */
+}
+
 /* Responsiveness */
 @media (max-width: 768px) {
   .admin-container {
