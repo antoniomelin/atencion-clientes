@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             exit;
         }
 
-        $stmt = $mysqli->prepare("UPDATE interacciones SET estado = 'procesado' WHERE codigo_seguimiento = ?");
+        $stmt = $mysqli->prepare("UPDATE interacciones SET estado = 'en_procesado' WHERE codigo_seguimiento = ?");
         $stmt->bind_param('s', $id);
         $stmt->execute();
 
