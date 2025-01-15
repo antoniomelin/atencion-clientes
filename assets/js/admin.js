@@ -102,3 +102,37 @@ document.addEventListener("DOMContentLoaded", function () {
       });
   });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  // Obtener todos los botones de procesar
+  const processButtons = document.querySelectorAll(".process-button");
+
+  processButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const interactionId = button.getAttribute("data-id");
+
+      // Acción al hacer clic en el botón
+      console.log(`Procesando interacción con ID: ${interactionId}`);
+      
+      // Ejemplo de llamada AJAX
+      fetch(`/api/procesar.php`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ id: interactionId }),
+      })
+        .then(response => response.json())
+        .then(data => {
+          if (data.success) {
+            alert("Interacción procesada con éxito");
+            button.disabled = true; // Deshabilitar botón tras procesar
+            button.textContent = "Procesado";
+          } else {
+            alert("Error al procesar la interacción");
+          }
+        })
+        .catch(error => console.error("Error:", error));
+    });
+  });
+});
