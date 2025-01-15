@@ -145,7 +145,9 @@ $estado_iconos = [
                                 </p>
                             <?php endif; ?>
                             <?php if (!empty($interaccion['foto_producto'])): ?>
-                                <p><strong>Foto Producto:</strong> <a href="<?= htmlspecialchars($interaccion['foto_producto']); ?>" target="_blank">Ver</a></p>
+                                <p><strong>Foto Producto:</strong> 
+                                  <a href="/api/download.php?file=<?= urldecode(basename($interaccion['foto_producto'])); ?>" target="_blank" title="ver foto producto">📦</a>
+                                </p>
                             <?php endif; ?>
                         <?php endif; ?>
 
