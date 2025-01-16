@@ -163,24 +163,35 @@ document.addEventListener("DOMContentLoaded", () => {
     resolveButtons.forEach((button) => {
       button.addEventListener("click", () => {
         const interactionId = button.getAttribute("data-id");
-
-        fetch(`/api/procesar.php`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ id: interactionId, action: "resuelto" }),
-        })
-          .then((response) => response.json())
-          .then((data) => {
-            if (data.success) {
-              alert(`Interacción ${interactionId} marcada como resuelta.`);
-              button.parentElement.parentElement.remove(); // Eliminar la interacción del DOM
-            } else {
-              alert(`Error: ${data.error}`);
-            }
+    
+        // Mostrar confirmación antes de proceder
+        const userConfirmed = confirm(
+          "¿Está seguro de resolver?, se enviará correo indicando resolución del caso"
+        );
+    
+        if (userConfirmed) {
+          // Si el usuario confirma, realizar la acción
+          fetch(`/api/procesar.php`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ id: interactionId, action: "resuelto" }),
           })
-          .catch((error) => console.error("Error en fetch:", error));
+            .then((response) => response.json())
+            .then((data) => {
+              if (data.success) {
+                alert(`Interacción ${interactionId} marcada como resuelta.`);
+                button.parentElement.parentElement.remove(); // Eliminar la interacción del DOM
+              } else {
+                alert(`Error: ${data.error}`);
+              }
+            })
+            .catch((error) => console.error("Error en fetch:", error));
+        } else {
+          // Si el usuario cancela, no se realiza ninguna acción
+          console.log(`El usuario canceló la resolución de la interacción ${interactionId}`);
+        }
       });
     });
   }

@@ -154,7 +154,7 @@ $estado_iconos = [
                         <!-- Botón "En Proceso" -->
                         <?php if ($interaccion['estado'] === 'pendiente'): ?>
                             <button class="process-button en-proceso" data-id="<?= htmlspecialchars($interaccion['codigo_seguimiento']); ?>">
-                                En Proceso
+                                Marca en Proceso
                             </button>
                         <?php endif; ?>
 
