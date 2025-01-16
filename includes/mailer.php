@@ -3,22 +3,52 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require __DIR__ . '/../vendor/autoload.php'; // Composer Autoload
+require __DIR__ . '/../vendor/autoload.php';
 
-/**
- * Envía un correo utilizando PHPMailer.
- *
- * @param string $emailDestino Dirección de correo del destinatario.
- * @param string $asunto Título del correo.
- * @param string $contenido Contenido HTML del correo.
- * @param array $config Configuración del correo SMTP (opcional, por defecto se cargan desde el proyecto).
- * @return bool True si el correo fue enviado con éxito, False si ocurrió un error.
- */
-function enviarCorreo($emailDestino, $asunto, $contenido, $config = null) {
-    if (!$config) {
-        // Si no se pasa configuración, carga la configuración predeterminada desde el archivo config.php
-        $config = require __DIR__ . '/../api/config.php';
-    }
+header('Content-Type: application/json');
+
+$input = json_decode(file_get_contents('php://input'), true);
+$emailDestino = $input['email'] ?? null;
+$mensaje = $input['message'] ?? null;
+$id = $input['id'] ?? null;
+$type = $input['type'] ?? 'generic'; // Tipo de correo (contacto, reclamo, sugerencia, etc.)
+
+if (!$emailDestino || !$mensaje) {
+    echo json_encode(['success' => false, 'error' => 'Datos incompletos']);
+    exit;
+}
+
+// Configuración general
+$config = require __DIR__ . '/../api/config.php';
+
+// Personalizar asunto y contenido basado en el tipo
+$asunto = "Notificación";
+$contenido = "<p>$mensaje</p>";
+
+switch ($type) {
+    case 'contact':
+        $asunto = "Nuevo Contacto";
+        $contenido = "<h1>Nuevo mensaje de contacto</h1><p>$mensaje</p>";
+        break;
+
+    case 'reclamo':
+        $asunto = "Reclamo recibido";
+        $contenido = "<h1>Reclamo registrado</h1><p>$mensaje</p>";
+        break;
+
+    case 'sugerencia':
+        $asunto = "Sugerencia enviada";
+        $contenido = "<h1>Gracias por tu sugerencia</h1><p>$mensaje</p>";
+        break;
+
+    case 'generic':
+    default:
+        $asunto = "Notificación del sistema";
+        $contenido = "<h1>Mensaje del sistema</h1><p>$mensaje</p>";
+        break;
+}
+
+function enviarCorreo($emailDestino, $asunto, $contenido, $config) {
 
     $mail = new PHPMailer(true);
 
@@ -34,7 +64,7 @@ function enviarCorreo($emailDestino, $asunto, $contenido, $config = null) {
 
         // Configuración del correo
         $mail->setFrom($config['MAIL_FROM_ADDRESS'], $config['MAIL_FROM_NAME']);
-        $mail->addAddress($emailDestino); // Correo del destinatario
+        $mail->addAddress($emailDestino);
         $mail->isHTML(true);
         $mail->Subject = $asunto;
         $mail->Body = $contenido;
@@ -46,4 +76,10 @@ function enviarCorreo($emailDestino, $asunto, $contenido, $config = null) {
         error_log("Error al enviar el correo: " . $mail->ErrorInfo); // Log del error
         return false;
     }
+}
+
+if (enviarCorreo($emailDestino, $asunto, $contenido, $config)) {
+    echo json_encode(['success' => true]);
+} else {
+    echo json_encode(['success' => false, 'error' => 'No se pudo enviar el correo']);
 }
