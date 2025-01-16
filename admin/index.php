@@ -160,7 +160,8 @@ $estado_iconos = [
 
                         <!-- Botón "Responder" y "Resolver" -->
                         <?php if ($interaccion['estado'] === 'en_proceso'): ?>
-                            <button class="respond-button" data-id="<?= htmlspecialchars($interaccion['codigo_seguimiento']); ?>">
+                            <button class="respond-button" data-id="<?= htmlspecialchars($interaccion['codigo_seguimiento']); ?>"
+                                                           data-email="<?= htmlspecialchars($interaccion['email']); ?>">
                                 ✉️ Responder
                             </button>
                             <button class="resolve-button" data-id="<?= htmlspecialchars($interaccion['codigo_seguimiento']); ?>">
