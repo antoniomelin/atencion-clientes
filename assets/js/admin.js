@@ -154,7 +154,7 @@ document.addEventListener("DOMContentLoaded", () => {
           return;
         }
 
-        fetch(`/api/mailer.php`, {
+        fetch(`/includes/mailer.php`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
