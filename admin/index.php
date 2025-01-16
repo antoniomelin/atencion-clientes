@@ -173,5 +173,18 @@ $estado_iconos = [
             </ul>
         </div>
     </main>
+    <!-- Modal para enviar respuesta -->
+    <div id="emailModal" class="modal" style="display: none;">
+    <div class="modal-content">
+        <span class="modal-close" id="closeModal">&times;</span>
+        <h2>Enviar Respuesta</h2>
+        <p><strong>Destinatario:</strong> <span id="emailRecipient"></span></p>
+        <textarea id="emailMessage" placeholder="Escribe tu mensaje aquí..." rows="5"></textarea>
+        <div class="modal-actions">
+        <button id="sendEmailButton" class="modal-button send">Enviar</button>
+        <button id="cancelEmailButton" class="modal-button cancel">Cancelar</button>
+        </div>
+    </div>
+</div>
 </body>
 </html>
