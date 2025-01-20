@@ -1,4 +1,8 @@
 <?php
+
+error_log("Datos recibidos en \$_POST: " . print_r($_POST, true));
+error_log("Archivos recibidos en \$_FILES: " . print_r($_FILES, true));
+
 require_once __DIR__ . '/../includes/mailer.php';
 $config = require __DIR__ . '/config.php';
 
@@ -19,8 +23,6 @@ if ($mysqli->connect_error) {
     echo json_encode(['message' => 'Error al conectar a la base de datos.', 'error' => $mysqli->connect_error]);
     exit;
 }
-error_log("Datos recibidos en \$_POST: " . print_r($_POST, true));
-error_log("Archivos recibidos en \$_FILES: " . print_r($_FILES, true));
 
 // Verifica si se envió el formulario como multipart/form-data
 if ($_SERVER['REQUEST_METHOD'] !== 'POST' || empty($_FILES)) {
