@@ -20,10 +20,10 @@ document.addEventListener("DOMContentLoaded", () => {
           overlay.style.display = "flex";
           submitButton.disabled = true;
 
-          const formData = new FormData(form);
-          for (let pair of formData.entries()) {
-              console.log(pair[0] + ": " + pair[1]);
-          }
+        //   const formData = new FormData(form);
+        //   for (let pair of formData.entries()) {
+        //       console.log(pair[0] + ": " + pair[1]);
+        //   }
 
           // Envía los datos al servidor
           const response = await fetch("/api/reclamo.php", {
