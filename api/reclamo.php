@@ -123,7 +123,9 @@ try {
         );
 
         if (!$insertContactoQuery->execute()) {
-            throw new Exception('Error al registrar el contacto: ' . $insertContactoQuery->error);
+            http_response_code(500);
+            echo json_encode(['success' => false, 'error' => 'Error al registrar el contacto.', 'details' => $insertContactoQuery->error]);
+            exit;
         }
 
         $contactoId = $insertContactoQuery->insert_id;
