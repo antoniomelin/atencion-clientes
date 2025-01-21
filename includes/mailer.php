@@ -48,8 +48,10 @@ switch ($type) {
         break;
 }
 
-function enviarCorreo($emailDestino, $asunto, $contenido, $config) {
-
+function enviarCorreo($emailDestino, $asunto, $contenido, $config = null) {
+    if(!$config){
+        $config = require __DIR__ . '/../api/config.php';
+    }
     $mail = new PHPMailer(true);
 
     try {
@@ -78,8 +80,8 @@ function enviarCorreo($emailDestino, $asunto, $contenido, $config) {
     }
 }
 
-if (enviarCorreo($emailDestino, $asunto, $contenido, $config)) {
-    echo json_encode(['success' => true]);
-} else {
-    echo json_encode(['success' => false, 'error' => 'No se pudo enviar el correo']);
-}
+// if (enviarCorreo($emailDestino, $asunto, $contenido, $config)) {
+//     echo json_encode(['success' => true]);
+// } else {
+//     echo json_encode(['success' => false, 'error' => 'No se pudo enviar el correo']);
+// }

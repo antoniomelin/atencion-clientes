@@ -1,8 +1,5 @@
 <?php
 
-error_log("Datos recibidos en \$_POST: " . print_r($_POST, true));
-error_log("Archivos recibidos en \$_FILES: " . print_r($_FILES, true));
-
 require_once __DIR__ . '/../includes/mailer.php';
 $config = require __DIR__ . '/config.php';
 
