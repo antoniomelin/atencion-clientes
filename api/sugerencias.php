@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/../includes/mailer.php';
+require_once __DIR__ . '/../includes/email_template.php'; // Importar la plantilla
 $config = require __DIR__ . '/config.php';
 
 header('Content-Type: application/json'); // Asegura que todas las respuestas sean JSON
