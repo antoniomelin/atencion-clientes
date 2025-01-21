@@ -7,46 +7,46 @@ require __DIR__ . '/../vendor/autoload.php';
 
 header('Content-Type: application/json');
 
-$input = json_decode(file_get_contents('php://input'), true);
-$emailDestino = $input['email'] ?? null;
-$mensaje = $input['message'] ?? null;
-$id = $input['id'] ?? null;
-$type = $input['type'] ?? 'generic'; // Tipo de correo (contacto, reclamo, sugerencia, etc.)
+// $input = json_decode(file_get_contents('php://input'), true);
+// $emailDestino = $input['email'] ?? null;
+// $mensaje = $input['message'] ?? null;
+// $id = $input['id'] ?? null;
+// $type = $input['type'] ?? 'generic'; // Tipo de correo (contacto, reclamo, sugerencia, etc.)
 
-if (!$emailDestino || !$mensaje) {
-    echo json_encode(['success' => false, 'error' => 'Datos incompletos']);
-    exit;
-}
+// if (!$emailDestino || !$mensaje) {
+//     echo json_encode(['success' => false, 'error' => 'Datos incompletos']);
+//     exit;
+// }
 
-// Configuración general
-$config = require __DIR__ . '/../api/config.php';
+// // Configuración general
+// $config = require __DIR__ . '/../api/config.php';
 
-// Personalizar asunto y contenido basado en el tipo
-$asunto = "Notificación";
-$contenido = "<p>$mensaje</p>";
+// // Personalizar asunto y contenido basado en el tipo
+// $asunto = "Notificación";
+// $contenido = "<p>$mensaje</p>";
 
-switch ($type) {
-    case 'contact':
-        $asunto = "Nuevo Contacto";
-        $contenido = "<h1>Nuevo mensaje de contacto</h1><p>$mensaje</p>";
-        break;
+// switch ($type) {
+//     case 'contact':
+//         $asunto = "Nuevo Contacto";
+//         $contenido = "<h1>Nuevo mensaje de contacto</h1><p>$mensaje</p>";
+//         break;
 
-    case 'reclamo':
-        $asunto = "Reclamo recibido";
-        $contenido = "<h1>Reclamo registrado</h1><p>$mensaje</p>";
-        break;
+//     case 'reclamo':
+//         $asunto = "Reclamo recibido";
+//         $contenido = "<h1>Reclamo registrado</h1><p>$mensaje</p>";
+//         break;
 
-    case 'sugerencia':
-        $asunto = "Sugerencia enviada";
-        $contenido = "<h1>Gracias por tu sugerencia</h1><p>$mensaje</p>";
-        break;
+//     case 'sugerencia':
+//         $asunto = "Sugerencia enviada";
+//         $contenido = "<h1>Gracias por tu sugerencia</h1><p>$mensaje</p>";
+//         break;
 
-    case 'generic':
-    default:
-        $asunto = "Notificación del sistema";
-        $contenido = "<h1>Mensaje del sistema</h1><p>$mensaje</p>";
-        break;
-}
+//     case 'generic':
+//     default:
+//         $asunto = "Notificación del sistema";
+//         $contenido = "<h1>Mensaje del sistema</h1><p>$mensaje</p>";
+//         break;
+// }
 
 function enviarCorreo($emailDestino, $asunto, $contenido, $config = null) {
     if(!$config){
