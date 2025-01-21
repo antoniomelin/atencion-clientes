@@ -161,12 +161,9 @@ try {
     $seguimientoQuery->close();
 
     // Enviar correo de confirmación
-    $asunto = "Gracias por tu Reclamo!";
-    $contenido = "
-        <h1>¡Gracias por tu reclamo!</h1>
-        <p>Hemos recibido tu reclamo y será revisado por nuestro equipo.</p>
-        <p>Tu código de seguimiento es: <strong>$codigoSeguimiento</strong></p>
-    ";
+    $asunto = "Nuevo Reclamo!";
+    $contenido = generarPlantillaCorreo($codigoSeguimiento, $asunto);
+
     enviarCorreo($_POST['email'], $asunto, $contenido);
 
     http_response_code(200);

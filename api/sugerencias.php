@@ -107,13 +107,10 @@ try {
 
     // Envía correo de confirmación
     try {
-        $asunto = "Gracias por tu Sugerencia!";
-        $contenido = "
-            <h1>¡Gracias por tu sugerencia!</h1>
-            <p>Hemos recibido tu sugerencia y será analizada por nuestro equipo.</p>
-            <p>Tu código de seguimiento es: <strong>$codigoSeguimiento</strong></p>
-        ";
-        # enviarCorreo($data['email'], $asunto, $contenido);
+        $asunto = "Nueva Sugerencia!";
+        $contenido = generarPlantillaCorreo($codigoSeguimiento, $asunto);
+
+        enviarCorreo($data['email'], $asunto, $contenido);
 
         http_response_code(200);
         echo json_encode([
