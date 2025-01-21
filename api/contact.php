@@ -4,6 +4,7 @@ use PHPMailer\PHPMailer\Exception;
 
 require __DIR__ . '/../vendor/autoload.php'; // Carga de Composer
 require_once __DIR__ . '/../includes/mailer.php'; // Carga la función enviarCorreo
+require_once __DIR__ . '/../includes/email_template.php'; // Importar la plantilla
 
 header('Content-Type: application/json');
 
@@ -124,11 +125,8 @@ if ($insertInteraccionQuery->execute()) {
         // Enviar correo de confirmación
         try {
             $asunto = "Contacto desde Friosur";
-            $contenido = "
-                <h1>¡Gracias por tu contacto!</h1>
-                <p>Tu solicitud fue registrada exitosamente.</p>
-                <p>Tu código de seguimiento es: <strong>$codigoSeguimiento</strong></p>
-            ";
+            $contenido = generarPlantillaCorreo($codigoSeguimiento, $asunto);
+
             enviarCorreo($data['email'], $asunto, $contenido);
         } catch (Exception $e) {
             error_log('Error al enviar el correo: ' . $e->getMessage());
