@@ -34,6 +34,9 @@ document.addEventListener("DOMContentLoaded", () => {
             overlay.style.display = "none";
             submitButton.disabled = false;
 
+            const resultText = await response.text(); // Leer la respuesta como texto
+            console.log("Respuesta bruta del servidor:", resultText);
+
             if (response.ok) {
                 const result = await response.json();
     
