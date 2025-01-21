@@ -1,5 +1,5 @@
 <?php
-function generarPlantillaCorreo($codigoSeguimiento, $asunto = "Notificación de Friosur") {
+function generarPlantillaCorreo($codigoSeguimiento, $asunto = "Notificación de Friosur", $mensaje = "Tu solicitud fue registrada exitosamente") {
     return "
     <!DOCTYPE html>
     <html>
@@ -24,10 +24,15 @@ function generarPlantillaCorreo($codigoSeguimiento, $asunto = "Notificación de 
             }
             .header {
                 text-align: center;
-                padding: 10px;
+                padding: 20px;
+                background-color: #0c3273;
+                border-radius: 10% 10% 0 0;
             }
             .header img {
                 width: 150px;
+                background-color: #0c3273;
+                border-radius: 10%;
+                padding: 10px;
             }
             .content {
                 padding: 20px;
@@ -63,8 +68,8 @@ function generarPlantillaCorreo($codigoSeguimiento, $asunto = "Notificación de 
                 <img src='https://www.friosur.cl/wp-content/uploads/2023/11/image-6.png' alt='Friosur Logo'>
             </div>
             <div class='content'>
-                <h1>¡Gracias por tu contacto!</h1>
-                <p>Tu solicitud fue registrada exitosamente.</p>
+                <h1>¡Gracias por tu $asunto!</h1>
+                <p>$mensaje</p>
                 <p>Tu código de seguimiento es:</p>
                 <p class='code'>$codigoSeguimiento</p>
             </div>
